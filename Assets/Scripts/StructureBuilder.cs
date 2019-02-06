@@ -31,7 +31,7 @@ public class StructureBuilder : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Vector3 point = MouseTracker.Instance.GetMousePosition();
-            CreateStructure("H_1", point);
+            CreateStructure("H_01", point);
         }
     }
 }
