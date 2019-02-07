@@ -13,24 +13,11 @@ public class MouseTracker : MonoBehaviour
         if (Instance == null)
             Instance = this;
     }
-
-    /// <summary>
-    /// Returns object's transform instance on which trigger button was clicked.
-    /// </summary>
-    /// <param name="trigger"> Defines which button causes raycasting on object.</param>
-    /// <returns></returns>
-    public Transform GetSelectedObject(KeyCode trigger)
-    {
-        if (Input.GetKeyDown(trigger))
-        {
-            if(PerformRaycast())
-                return hit.transform;
-        }
-
-        return null;
-    }
     
-    // Raycast from mouse position
+    /// <summary>
+    /// Performs raycasting on mouse cursor position
+    /// </summary>
+    /// <returns></returns>
     private bool PerformRaycast()
     {
         Ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -40,12 +27,17 @@ public class MouseTracker : MonoBehaviour
 
         return false;
     }
-    
+
+    /// <summary>
+    /// Returns position where cursor is pointing on object 
+    /// with collider in world space
+    /// </summary>
+    /// <returns></returns>
     public Vector3 GetMousePosition()
     {
         if (PerformRaycast())
             return hit.point;
 
-        return Vector3.zero;
+        return Vector3.negativeInfinity;
     }
 }

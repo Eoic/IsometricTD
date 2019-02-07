@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8058706723481761402}
-  - component: {fileID: 8058706723481761397}
   - component: {fileID: 8225788197717875918}
   - component: {fileID: 5574387427075709700}
   - component: {fileID: 6015047527943976175}
+  - component: {fileID: 7573398958085156725}
   m_Layer: 0
-  m_Name: SimpleBuilding
+  m_Name: H_01_Building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,32 +28,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8058706723481761396}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.18817702, y: 0.5, z: -3.9266267}
+  m_LocalPosition: {x: -8.283289, y: 0.5, z: -5.5110106}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8058706723481761397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8058706723481761396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df3a840f862feb94ab5fdef3d3f81d46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: H_01
-  buildingName: Simple
-  hitPoints: 100
-  stoneCost: 100
-  woodCost: 100
-  ironCost: 100
-  hitPointsCurrent: 100
-  isDestroyed: 0
 --- !u!23 &8225788197717875918
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -107,9 +87,29 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8058706723481761396}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
+  m_IsTrigger: 1
+  m_Enabled: 0
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &7573398958085156725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8058706723481761396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df3a840f862feb94ab5fdef3d3f81d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingId: 0
+  buildingName: SimpleHouseOne
+  hitPoints: 0
+  stoneCost: 0
+  woodCost: 0
+  ironCost: 0
+  hitPointsCurrent: 0
+  isDestroyed: 0
