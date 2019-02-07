@@ -38,6 +38,15 @@ public class Building : MonoBehaviour
             onValidPosition = false;
         }
     }
+    
+    private void OnCollisionStay(Collision collision)
+    {
+        if (((1 << collision.gameObject.layer) & collisionMask) != 0 && onValidPosition)
+        {
+            GetComponent<Renderer>().material = invalidLocation;
+            onValidPosition = false;
+        }
+    }
 
     private void OnCollisionExit(Collision collision)
     {
