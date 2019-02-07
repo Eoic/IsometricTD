@@ -7,6 +7,7 @@ public class MouseTracker : MonoBehaviour
     public static MouseTracker Instance { get; set; } = null;
     public RaycastHit Hit { get => hit; set => hit = value; }
     public Ray Ray { get; set; }
+    public LayerMask raycastLayer;
 
     private void Awake()
     {
@@ -22,7 +23,7 @@ public class MouseTracker : MonoBehaviour
     {
         Ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(Ray, out hit))
+        if (Physics.Raycast(Ray, out hit, Mathf.Infinity, raycastLayer))
             return true;
 
         return false;

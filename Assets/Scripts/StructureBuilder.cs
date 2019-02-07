@@ -29,9 +29,13 @@ public class StructureBuilder : MonoBehaviour
 
         if (building == null || BuildModeEnabled == false || position.Equals(Vector3.negativeInfinity))
             return;
+        
+        if (!structureBlueprint.GetComponent<Building>().OnValidPosition)
+            return;
 
         position = new Vector3(position.x, building.transform.localScale.y / 2, position.z);
         building.transform.position = position;
+
         Instantiate(building, position, Quaternion.identity);
     }
     

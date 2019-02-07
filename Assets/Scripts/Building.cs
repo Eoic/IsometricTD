@@ -2,6 +2,11 @@
 
 public class Building : MonoBehaviour
 {
+    public LayerMask collisionMask;
+    public Material validLocation;
+    public Material invalidLocation;
+
+    private Material defaultMaterial;
     [SerializeField] private Constants.Buildings buildingId;
     [SerializeField] private string buildingName;
     [SerializeField] private int hitPoints;
@@ -10,6 +15,7 @@ public class Building : MonoBehaviour
     [SerializeField] private int ironCost;
     [SerializeField] private int hitPointsCurrent;
     [SerializeField] private bool isDestroyed;
+    [SerializeField] private bool onValidPosition = true;
     
     public Constants.Buildings BuildingId { get => buildingId; set => buildingId = value; }
     public string BuildingName { get => buildingName; }
@@ -17,15 +23,25 @@ public class Building : MonoBehaviour
     public int StoneCost { get => stoneCost; }
     public int WoodCost { get => woodCost; }
     public int IronCost { get => ironCost; }
+    public bool OnValidPosition { get => onValidPosition; }
 
-    public void TakeDamage(int amount)
+    private void Start()
     {
-        if (hitPoints - amount > 0)
-            hitPoints -= amount;
-        else
+        defaultMaterial = GetComponent<Renderer>().material;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (((1 << collision.gameObject.layer) & collisionMask) != 0)
         {
-            hitPoints = 0;
-            isDestroyed = true;
+            GetComponent<Renderer>().material = invalidLocation;
+            onValidPosition = false;
         }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        GetComponent<Renderer>().material = validLocation;
+        onValidPosition = true;
     }
 }
