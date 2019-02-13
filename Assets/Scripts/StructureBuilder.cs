@@ -33,7 +33,7 @@ public class StructureBuilder : MonoBehaviour
         if (!structureBlueprint.GetComponent<Building>().OnValidPosition)
             return;
 
-        position = new Vector3(position.x, building.transform.localScale.y / 2, position.z);
+        position = new Vector3(position.x, position.y + (building.transform.localScale.y / 2), position.z);
         building.transform.position = position;
 
         Instantiate(building, position, Quaternion.identity);
@@ -79,8 +79,8 @@ public class StructureBuilder : MonoBehaviour
         Vector3 cursorPosition = MouseTracker.Instance.GetMousePosition();
 
         if (cursorPosition.Equals(Vector3.negativeInfinity))
-            return new Vector3(structure.position.x, structure.transform.localScale.y / 2, structure.position.z);
+            return new Vector3(structure.position.x, structure.position.y, structure.position.z);
 
-        return new Vector3(cursorPosition.x, structure.transform.localScale.y / 2, cursorPosition.z);
+        return new Vector3(cursorPosition.x, cursorPosition.y + (structure.transform.localScale.y / 2), cursorPosition.z);
     }
 }

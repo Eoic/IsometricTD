@@ -9,8 +9,8 @@ public class CameraController : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
 
     // Zooming
-    private readonly float minZoom = 2f;
-    private readonly float maxZoom = 12f;
+    [SerializeField] private float minZoom = 2f;
+    [SerializeField] private float maxZoom = 12f;
     public float ZoomSensitivity = 4f;
     public float ZoomSpeed = 20f;
     private float zoomSize;
