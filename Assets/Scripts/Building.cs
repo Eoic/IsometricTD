@@ -7,6 +7,7 @@ public class Building : MonoBehaviour
     public Material invalidLocation;
 
     private Material defaultMaterial;
+    private Renderer objectRenderer;
     [SerializeField] private Constants.Buildings buildingId;
     [SerializeField] private string buildingName;
     [SerializeField] private int hitPoints;
@@ -16,6 +17,7 @@ public class Building : MonoBehaviour
     [SerializeField] private int hitPointsCurrent;
     [SerializeField] private bool isDestroyed;
     [SerializeField] private bool onValidPosition = true;
+    [SerializeField] private bool isBuilt = false;
     
     public Constants.Buildings BuildingId { get => buildingId; set => buildingId = value; }
     public string BuildingName { get => buildingName; }
@@ -25,32 +27,42 @@ public class Building : MonoBehaviour
     public int IronCost { get => ironCost; }
     public bool OnValidPosition { get => onValidPosition; }
 
-    private void Start()
+    private void Awake()
     {
-        defaultMaterial = GetComponent<Renderer>().material;
+        objectRenderer = GetComponent<Renderer>();
+        defaultMaterial = objectRenderer.material;
     }
-
+    
     private void OnCollisionEnter(Collision collision)
     {
-        if (((1 << collision.gameObject.layer) & collisionMask) != 0)
+        if (((1 << collision.gameObject.layer) & collisionMask) != 0 && !isBuilt)
         {
-            GetComponent<Renderer>().material = invalidLocation;
+            objectRenderer.material = invalidLocation;
             onValidPosition = false;
         }
     }
     
     private void OnCollisionStay(Collision collision)
     {
-        if (((1 << collision.gameObject.layer) & collisionMask) != 0 && onValidPosition)
+        if (((1 << collision.gameObject.layer) & collisionMask) != 0 && onValidPosition && !isBuilt)
         {
-            GetComponent<Renderer>().material = invalidLocation;
+            objectRenderer.material = invalidLocation;
             onValidPosition = false;
         }
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        GetComponent<Renderer>().material = validLocation;
-        onValidPosition = true;
+        if (!isBuilt)
+        {
+            objectRenderer.material = validLocation;
+            onValidPosition = true;
+        }
+    }
+
+    public void SetAsBuilt()
+    {
+        objectRenderer.material = defaultMaterial;
+        isBuilt = true;
     }
 }

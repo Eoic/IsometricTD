@@ -41,4 +41,10 @@ public class MouseTracker : MonoBehaviour
 
         return Vector3.negativeInfinity;
     }
+
+    public Transform GetHitTransform()
+    {
+        return hit.transform;
+    }
+
 }

@@ -45,7 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CameraMovementSpeed: 20
-  ZoomSensitivity: 4
+  minZoom: 2
+  maxZoom: 25
+  ZoomSensitivity: 10
   ZoomSpeed: 15
   RotationSpeed: 10
 --- !u!1 &6440763676002778698
@@ -103,11 +105,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: -20
+  near clip plane: -35
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2.05
+  orthographic size: 25
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

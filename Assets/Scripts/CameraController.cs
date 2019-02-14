@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    // Moving
+    // Moving (Keys)
     public float CameraMovementSpeed = 20f;
     private Vector3 moveDirection = Vector3.zero;
+
+    // Moving (Mouse dragging)
+    private Vector3 dragPoint;
+    public float dragSpeed = 10f;
 
     // Zooming
     [SerializeField] private float minZoom = 2f;
@@ -35,27 +39,19 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        // Camera rotation
         RotateCamera();
-
-        // Camera movement
-        if (Input.GetKey(KeyCode.S))
-            transform.Translate(directions[directionIndex[0]] * Time.deltaTime * CameraMovementSpeed, Space.World);
-        else if (Input.GetKey(KeyCode.W))
-            transform.Translate(directions[directionIndex[1]] * Time.deltaTime * CameraMovementSpeed, Space.World);
-        else if (Input.GetKey(KeyCode.A))
-            transform.Translate(directions[directionIndex[2]].normalized * Time.deltaTime * CameraMovementSpeed, Space.World);
-        else if (Input.GetKey(KeyCode.D))
-            transform.Translate(directions[directionIndex[3]].normalized * Time.deltaTime * CameraMovementSpeed, Space.World);
+        MoveCamera();
 
         // Calculate zoom step
-        zoomSize += Input.GetAxisRaw("Mouse ScrollWheel") * ZoomSensitivity;
-        zoomSize = Mathf.Clamp(zoomSize, minZoom, maxZoom);
+        if (Input.GetAxisRaw("Mouse ScrollWheel") != 0.0f)
+        {
+            zoomSize += Input.GetAxisRaw("Mouse ScrollWheel") * ZoomSensitivity;
+            zoomSize = Mathf.Clamp(zoomSize, minZoom, maxZoom);
+        }
     }
 
     void LateUpdate()
     {
-        // Smooth zooming
         Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, zoomSize, Time.deltaTime * ZoomSpeed);
     }
 
@@ -77,9 +73,20 @@ public class CameraController : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, rotateTo, Time.deltaTime * RotationSpeed);
     }
 
+    void MoveCamera()
+    {
+        if (Input.GetKey(KeyCode.S))
+            transform.Translate(directions[directionIndex[0]] * Time.deltaTime * CameraMovementSpeed, Space.World);
+        else if (Input.GetKey(KeyCode.W))
+            transform.Translate(directions[directionIndex[1]] * Time.deltaTime * CameraMovementSpeed, Space.World);
+        else if (Input.GetKey(KeyCode.A))
+            transform.Translate(directions[directionIndex[2]].normalized * Time.deltaTime * CameraMovementSpeed, Space.World);
+        else if (Input.GetKey(KeyCode.D))
+            transform.Translate(directions[directionIndex[3]].normalized * Time.deltaTime * CameraMovementSpeed, Space.World);
+    }
+
     void UpdateDirections()
     {
-        Debug.Log(rotated);
         if (rotated == 45 || rotated == -315)
         {
             directionIndex[0] = 0;

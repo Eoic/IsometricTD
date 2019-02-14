@@ -7,7 +7,6 @@ public class StructureBuilder : MonoBehaviour
     [SerializeField] private List<GameObject> buildings;
     [SerializeField] private bool buildModeEnabled;
     [SerializeField] private Constants.Buildings buildingId;
-    private GameObject structureToPlace;
     private GameObject structureBlueprint;
 
     // PROPERTIES
@@ -33,10 +32,14 @@ public class StructureBuilder : MonoBehaviour
         if (!structureBlueprint.GetComponent<Building>().OnValidPosition)
             return;
 
-        position = new Vector3(position.x, position.y + (building.transform.localScale.y / 2), position.z);
+        Vector3 localScale = building.transform.localScale; 
+        position = new Vector3(Mathf.Round(position.x / localScale.x) / localScale.x, 
+                               position.y + (localScale.y / 2), 
+                               Mathf.Round(position.z / localScale.z) / localScale.z);
         building.transform.position = position;
 
-        Instantiate(building, position, Quaternion.identity);
+        GameObject buildingReference = Instantiate(building, position, Quaternion.identity);
+        buildingReference.GetComponent<Building>().SetAsBuilt();
     }
     
     void Update()
@@ -61,7 +64,7 @@ public class StructureBuilder : MonoBehaviour
         BuildModeEnabled = true;
 
         if (building != null)
-            structureBlueprint = Instantiate(building, GetBuildingPosition(building.transform), Quaternion.identity);
+            structureBlueprint = Instantiate(building, Vector3.zero, Quaternion.identity);
         else
             BuildModeEnabled = false;
     }
@@ -77,10 +80,13 @@ public class StructureBuilder : MonoBehaviour
     private Vector3 GetBuildingPosition(Transform structure)
     {
         Vector3 cursorPosition = MouseTracker.Instance.GetMousePosition();
+        float? elevation = MouseTracker.Instance.GetHitTransform()?.position.y;
 
         if (cursorPosition.Equals(Vector3.negativeInfinity))
-            return new Vector3(structure.position.x, structure.position.y, structure.position.z);
+            return structure.position;
 
-        return new Vector3(cursorPosition.x, cursorPosition.y + (structure.transform.localScale.y / 2), cursorPosition.z);
+        return new Vector3(Mathf.Round(cursorPosition.x / structure.localScale.x) / structure.localScale.x, 
+                           cursorPosition.y + (structure.transform.localScale.y / 2), 
+                           Mathf.Round(cursorPosition.z / structure.localScale.z) / structure.localScale.z);
     }
 }
