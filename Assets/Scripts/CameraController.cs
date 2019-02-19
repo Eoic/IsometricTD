@@ -1,58 +1,59 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
+public static class Direction
+{
+    public static readonly Vector3 Up = new Vector3(1, 0, 1);
+    public static readonly Vector3 Left = new Vector3(-1, 0, 1);
+    public static readonly Vector3 Down = new Vector3(-1, 0, -1);
+    public static readonly Vector3 Right = new Vector3(1, 0, -1);
+}
 
 public class CameraController : MonoBehaviour
 {
-    // Moving (Keys)
-    public float CameraMovementSpeed = 20f;
-    private Vector3 moveDirection = Vector3.zero;
+    // Movement
+    public int MovementSpeed = 30;
 
-    // Moving (Mouse dragging)
-    private Vector3 dragPoint;
-    public float dragSpeed = 10f;
+    // Rotation
+    private Quaternion rotationTarget;
+    public int RotationSpeed = 10;
+    private int rotated = 0;
 
     // Zooming
-    [SerializeField] private float minZoom = 2f;
-    [SerializeField] private float maxZoom = 12f;
+    public float MinZoom = 2f;
+    public float MaxZoom = 12f;
     public float ZoomSensitivity = 4f;
     public float ZoomSpeed = 20f;
     private float zoomSize;
 
-    // Rotating
-    public int RotationSpeed = 10;
-    private Quaternion rotateTo;
-    private int rotated = 45;
-    private readonly Vector3[] directions = new Vector3[4];
-    private int[] directionIndex = { 0, 1, 2, 3 };
-
+    // Dragging
+    private Vector3 origin;
+    private Vector3 targetDirection;
+    private Vector3 dragDelta;
+        
     void Start()
     {
         zoomSize = Camera.main.orthographicSize;
-        rotateTo = transform.rotation;
-
-        directions[0] = new Vector3(-1, 0, -1);
-        directions[1] = new Vector3(1, 0, 1);
-        directions[2] = new Vector3(-1, 0, 1);
-        directions[3] = new Vector3(1, 0, -1);
+        rotationTarget = transform.rotation;
     }
 
     void Update()
     {
-        RotateCamera();
         MoveCamera();
-
-        // Calculate zoom step
-        if (Input.GetAxisRaw("Mouse ScrollWheel") != 0.0f)
-        {
-            zoomSize += Input.GetAxisRaw("Mouse ScrollWheel") * ZoomSensitivity;
-            zoomSize = Mathf.Clamp(zoomSize, minZoom, maxZoom);
-        }
+        RotateCamera();
+        ZoomCamera();
+        DragCamera();
     }
 
-    void LateUpdate()
+    void MoveCamera()
     {
-        Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, zoomSize, Time.deltaTime * ZoomSpeed);
+        if (Input.GetKey(KeyCode.W))
+            transform.Translate(Direction.Up * MovementSpeed * Time.deltaTime, Space.Self);
+        else if (Input.GetKey(KeyCode.S))
+            transform.Translate(Direction.Down * MovementSpeed * Time.deltaTime, Space.Self);
+        else if (Input.GetKey(KeyCode.A))
+            transform.Translate(Direction.Left * (MovementSpeed / 2) * Time.deltaTime, Space.Self);
+        else if (Input.GetKey(KeyCode.D))
+            transform.Translate(Direction.Right * (MovementSpeed / 2) * Time.deltaTime, Space.Self);
     }
 
     void RotateCamera()
@@ -60,57 +61,52 @@ public class CameraController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             rotated = (rotated + 90) % 360;
-            rotateTo = Quaternion.Euler(30, rotated, 0);
-            UpdateDirections();
+            rotationTarget = Quaternion.Euler(0, rotated, 0);
         }
-        else if(Input.GetKeyDown(KeyCode.E))
+        else if (Input.GetKeyDown(KeyCode.E))
         {
             rotated = (rotated - 90) % 360;
-            rotateTo = Quaternion.Euler(30, rotated, 0);
-            UpdateDirections();
+            rotationTarget = Quaternion.Euler(0, rotated, 0);
         }
 
-        transform.rotation = Quaternion.Lerp(transform.rotation, rotateTo, Time.deltaTime * RotationSpeed);
+        transform.rotation = Quaternion.Lerp(transform.rotation, rotationTarget, Time.deltaTime * RotationSpeed);
     }
 
-    void MoveCamera()
+    void ZoomCamera()
     {
-        if (Input.GetKey(KeyCode.S))
-            transform.Translate(directions[directionIndex[0]] * Time.deltaTime * CameraMovementSpeed, Space.World);
-        else if (Input.GetKey(KeyCode.W))
-            transform.Translate(directions[directionIndex[1]] * Time.deltaTime * CameraMovementSpeed, Space.World);
-        else if (Input.GetKey(KeyCode.A))
-            transform.Translate(directions[directionIndex[2]].normalized * Time.deltaTime * CameraMovementSpeed, Space.World);
-        else if (Input.GetKey(KeyCode.D))
-            transform.Translate(directions[directionIndex[3]].normalized * Time.deltaTime * CameraMovementSpeed, Space.World);
-    }
-
-    void UpdateDirections()
-    {
-        if (rotated == 45 || rotated == -315)
+        if (Input.GetAxisRaw("Mouse ScrollWheel") != 0.0f)
         {
-            directionIndex[0] = 0;
-            directionIndex[1] = 1;
-            directionIndex[2] = 2;
-            directionIndex[3] = 3;
-        } else if(rotated == 135 || rotated == -225)
-        {
-            directionIndex[0] = 2;
-            directionIndex[1] = 3;
-            directionIndex[2] = 1;
-            directionIndex[3] = 0;
-        } else if (rotated == 225 || rotated == -135)
-        {
-            directionIndex[0] = 1;  
-            directionIndex[1] = 0;
-            directionIndex[2] = 3;
-            directionIndex[3] = 2; 
-        } else if(rotated == -45 || rotated == 315)
-        {
-            directionIndex[0] = 3;
-            directionIndex[1] = 2; 
-            directionIndex[2] = 0;
-            directionIndex[3] = 1; 
+            zoomSize += Input.GetAxisRaw("Mouse ScrollWheel") * ZoomSensitivity;
+            zoomSize = Mathf.Clamp(zoomSize, MinZoom, MaxZoom);
         }
+    }
+
+    void DragCamera()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            origin = MouseTracker.Instance.GetMousePosition();
+            origin.y = 0;
+        }
+
+        if (Input.GetKey(KeyCode.Mouse0) && !origin.Equals(Vector3.negativeInfinity))
+        {
+            targetDirection = MouseTracker.Instance.GetMousePosition();
+
+            if (!targetDirection.Equals(Vector3.negativeInfinity))
+            {
+                targetDirection.y = 0;
+                dragDelta = origin - targetDirection;
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+            dragDelta = Vector3.zero;
+    }
+
+    void LateUpdate()
+    {
+        Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, zoomSize, Time.deltaTime * ZoomSpeed);
+        transform.position += dragDelta;
     }
 }
