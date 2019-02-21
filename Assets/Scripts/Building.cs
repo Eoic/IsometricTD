@@ -16,7 +16,7 @@ public class Building : MonoBehaviour
     [SerializeField] private int ironCost;
     [SerializeField] private int hitPointsCurrent;
     [SerializeField] private bool isDestroyed;
-    [SerializeField] private bool onValidPosition = true;
+    [SerializeField] private bool onValidPosition;
     [SerializeField] private bool isBuilt = false;
     
     public Constants.Buildings BuildingId { get => buildingId; set => buildingId = value; }
@@ -32,13 +32,19 @@ public class Building : MonoBehaviour
         objectRenderer = GetComponent<Renderer>();
         defaultMaterial = objectRenderer.material;
     }
-    
+
+    private void Start()
+    {
+        onValidPosition = true;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (((1 << collision.gameObject.layer) & collisionMask) != 0 && !isBuilt)
         {
             objectRenderer.material = invalidLocation;
             onValidPosition = false;
+            Debug.Log("Entered collision");
         }
     }
     
@@ -48,6 +54,7 @@ public class Building : MonoBehaviour
         {
             objectRenderer.material = invalidLocation;
             onValidPosition = false;
+            Debug.Log("Staying on collision");
         }
     }
 
@@ -57,6 +64,7 @@ public class Building : MonoBehaviour
         {
             objectRenderer.material = validLocation;
             onValidPosition = true;
+            Debug.Log("Exitting collision");
         }
     }
 

@@ -75,7 +75,7 @@ public class StructureBuilder : MonoBehaviour
         BuildModeEnabled = false;
         Destroy(structureBlueprint);
     }
-
+    
     // Returns building position according to its scale and cursor position
     private Vector3 GetBuildingPosition(Transform structure)
     {

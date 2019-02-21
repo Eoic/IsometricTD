@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 158}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20, y: 1.25, z: -11}
+  m_LocalPosition: {x: 182, y: 1.5, z: 241}
   m_LocalScale: {x: 1, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -118,7 +118,7 @@ MonoBehaviour:
   ironCost: 100
   hitPointsCurrent: 100
   isDestroyed: 0
-  onValidPosition: 0
+  onValidPosition: 1
   isBuilt: 0
 --- !u!54 &166
 Rigidbody:

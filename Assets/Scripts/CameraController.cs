@@ -36,10 +36,10 @@ public class CameraController : MonoBehaviour
 
     // Camera position constraints
     [Header("Movement constraints")]
-    public float limitLowerX = -50;
-    public float limitUpperX = 50;
-    public float limitLowerZ = -50;
-    public float limitUpperZ = 50;
+    public float limitLowerX = -90;
+    public float limitUpperX = 400;
+    public float limitLowerZ = -90;
+    public float limitUpperZ = 400;
 
     void Start()
     {
@@ -94,13 +94,13 @@ public class CameraController : MonoBehaviour
 
     void DragCamera()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse2))
         {
             origin = MouseTracker.Instance.GetMousePosition();
             origin.y = 0;
         }
 
-        if (Input.GetKey(KeyCode.Mouse0) && !origin.Equals(Vector3.negativeInfinity))
+        if (Input.GetKey(KeyCode.Mouse2) && !origin.Equals(Vector3.negativeInfinity))
         {
             targetDirection = MouseTracker.Instance.GetMousePosition();
 
@@ -111,7 +111,7 @@ public class CameraController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.Mouse0))
+        if (Input.GetKeyUp(KeyCode.Mouse2))
             dragDelta = Vector3.zero;
     }
 
