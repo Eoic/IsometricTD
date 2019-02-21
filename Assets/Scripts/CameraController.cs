@@ -13,6 +13,8 @@ public class CameraController : MonoBehaviour
     // Movement
     [Header("Movement")]
     public int MovementSpeed = 30;
+    public int OriginX = 250;
+    public int OriginZ = 250;
 
     // Rotation
     [Header("Rotation")]
@@ -45,6 +47,7 @@ public class CameraController : MonoBehaviour
     {
         zoomSize = Camera.main.orthographicSize;
         rotationTarget = transform.rotation;
+        transform.position = new Vector3(OriginX, 0, OriginZ);
     }
 
     void Update()
@@ -118,6 +121,12 @@ public class CameraController : MonoBehaviour
     void LateUpdate()
     {
         Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, zoomSize, Time.deltaTime * ZoomSpeed);
-        transform.position += dragDelta;
+
+        if (IsPositionValid(dragDelta))
+            transform.position += dragDelta;
     }
+
+    bool IsPositionValid(Vector3 delta) =>
+        (dragDelta.x + transform.position.x <= limitUpperX && dragDelta.x + transform.position.x >= limitLowerX &&
+        dragDelta.z + transform.position.z <= limitUpperZ && dragDelta.z + transform.position.z >= limitLowerZ);
 }

@@ -73,7 +73,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.36645603, g: 0.38860223, b: 0.4245283, a: 1}
+  m_BackGroundColor: {r: 0.6204209, g: 0.8207547, b: 0.46070665, a: 1}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -85,7 +85,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: -71.67
+  near clip plane: -50
   far clip plane: 1000
   field of view: 60
   orthographic: 1
@@ -123,10 +123,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8701440807070260636}
   - component: {fileID: 8701440807070260639}
+  - component: {fileID: 1607086064}
+  - component: {fileID: 1607086065}
   m_Layer: 0
   m_Name: GameCamera
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -158,12 +160,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 55
-  RotationSpeed: 10
+  OriginX: 350
+  OriginZ: 350
+  RotationSpeed: 8
   MinZoom: 2
   MaxZoom: 30
   ZoomSensitivity: 13
   ZoomSpeed: 20
-  limitLowerX: -50
-  limitUpperX: 50
-  limitLowerZ: -50
-  limitUpperZ: 50
+  limitLowerX: 100
+  limitUpperX: 600
+  limitLowerZ: 100
+  limitUpperZ: 600
+--- !u!33 &1607086064
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8701440807070260637}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1607086065
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8701440807070260637}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
