@@ -5,7 +5,6 @@ public class Building : MonoBehaviour
     public LayerMask collisionMask;
     public Material validLocation;
     public Material invalidLocation;
-
     private Material defaultMaterial;
     private Renderer objectRenderer;
     [SerializeField] private Constants.Buildings buildingId;
@@ -31,10 +30,12 @@ public class Building : MonoBehaviour
     {
         objectRenderer = GetComponent<Renderer>();
         defaultMaterial = objectRenderer.material;
+        Debug.Log("Awake");
     }
 
     private void Start()
     {
+        Debug.Log("Start");
         onValidPosition = true;
     }
 
@@ -44,7 +45,6 @@ public class Building : MonoBehaviour
         {
             objectRenderer.material = invalidLocation;
             onValidPosition = false;
-            Debug.Log("Entered collision");
         }
     }
     
@@ -54,7 +54,6 @@ public class Building : MonoBehaviour
         {
             objectRenderer.material = invalidLocation;
             onValidPosition = false;
-            Debug.Log("Staying on collision");
         }
     }
 
@@ -64,7 +63,6 @@ public class Building : MonoBehaviour
         {
             objectRenderer.material = validLocation;
             onValidPosition = true;
-            Debug.Log("Exitting collision");
         }
     }
 
