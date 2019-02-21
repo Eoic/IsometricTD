@@ -11,14 +11,17 @@ public static class Direction
 public class CameraController : MonoBehaviour
 {
     // Movement
+    [Header("Movement")]
     public int MovementSpeed = 30;
 
     // Rotation
+    [Header("Rotation")]
     private Quaternion rotationTarget;
     public int RotationSpeed = 10;
     private int rotated = 0;
 
     // Zooming
+    [Header("Zooming")]
     public float MinZoom = 2f;
     public float MaxZoom = 12f;
     public float ZoomSensitivity = 4f;
@@ -26,10 +29,18 @@ public class CameraController : MonoBehaviour
     private float zoomSize;
 
     // Dragging
+    [Header("Dragging")]
     private Vector3 origin;
     private Vector3 targetDirection;
     private Vector3 dragDelta;
-        
+
+    // Camera position constraints
+    [Header("Movement constraints")]
+    public float limitLowerX = -50;
+    public float limitUpperX = 50;
+    public float limitLowerZ = -50;
+    public float limitUpperZ = 50;
+
     void Start()
     {
         zoomSize = Camera.main.orthographicSize;
