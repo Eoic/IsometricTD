@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1960252847}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 349, y: 4.717693e-18, z: 329}
+  m_LocalPosition: {x: 358, y: 7.725863e-18, z: 315}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -95,7 +95,6 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 4608
-  validLocation: {fileID: 2100000, guid: 7af4ead33d070f54ead6aa1c87777181, type: 2}
   invalidLocation: {fileID: 2100000, guid: 0adb9821c6138cd4486ff0d492661ffd, type: 2}
   buildingId: 1
   buildingName: ArcherTower

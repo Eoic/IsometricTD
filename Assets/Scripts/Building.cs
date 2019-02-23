@@ -3,7 +3,6 @@
 public class Building : MonoBehaviour
 {
     public LayerMask collisionMask;
-    public Material validLocation;
     public Material invalidLocation;
     private Material defaultMaterial;
     private Renderer objectRenderer;
@@ -59,7 +58,7 @@ public class Building : MonoBehaviour
     {
         if (!isBuilt)
         {
-            objectRenderer.material = validLocation;
+            objectRenderer.material = defaultMaterial;
             onValidPosition = true;
         }
     }
