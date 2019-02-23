@@ -1,0 +1,266 @@
+fileFormatVersion: 2
+guid: d9603cb0896651749a195f1c01e3057f
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Box02
+    100002: Box03
+    100004: Box03 1
+    100006: Box04
+    100008: Box05
+    100010: Box06
+    100012: Box07
+    100014: Box08
+    100016: Box09
+    100018: Box10
+    100020: Box11
+    100022: Box12
+    100024: Box13
+    100026: Box14
+    100028: Box15
+    100030: Box16
+    100032: Cone01
+    100034: Cylinder01
+    100036: Cylinder02
+    100038: Gengon01
+    100040: Gengon02
+    100042: Gengon03
+    100044: Gengon04
+    100046: Gengon05
+    100048: Gengon06
+    100050: Gengon07
+    100052: Gengon08
+    100054: tower
+    100056: //RootNode
+    100058: Tube01
+    400000: Box02
+    400002: Box03
+    400004: Box03 1
+    400006: Box04
+    400008: Box05
+    400010: Box06
+    400012: Box07
+    400014: Box08
+    400016: Box09
+    400018: Box10
+    400020: Box11
+    400022: Box12
+    400024: Box13
+    400026: Box14
+    400028: Box15
+    400030: Box16
+    400032: Cone01
+    400034: Cylinder01
+    400036: Cylinder02
+    400038: Gengon01
+    400040: Gengon02
+    400042: Gengon03
+    400044: Gengon04
+    400046: Gengon05
+    400048: Gengon06
+    400050: Gengon07
+    400052: Gengon08
+    400054: tower
+    400056: //RootNode
+    400058: Tube01
+    2100000: 06 - Default
+    2100002: 07 - Default
+    2100004: parede2
+    2300000: Box02
+    2300002: Box03
+    2300004: Box03 1
+    2300006: Box04
+    2300008: Box05
+    2300010: Box06
+    2300012: Box07
+    2300014: Box08
+    2300016: Box09
+    2300018: Box10
+    2300020: Box11
+    2300022: Box12
+    2300024: Box13
+    2300026: Box14
+    2300028: Box15
+    2300030: Box16
+    2300032: Cone01
+    2300034: Cylinder01
+    2300036: Cylinder02
+    2300038: Gengon01
+    2300040: Gengon02
+    2300042: Gengon03
+    2300044: Gengon04
+    2300046: Gengon05
+    2300048: Gengon06
+    2300050: Gengon07
+    2300052: Gengon08
+    2300054: tower
+    2300056: Tube01
+    3300000: Box02
+    3300002: Box03
+    3300004: Box03 1
+    3300006: Box04
+    3300008: Box05
+    3300010: Box06
+    3300012: Box07
+    3300014: Box08
+    3300016: Box09
+    3300018: Box10
+    3300020: Box11
+    3300022: Box12
+    3300024: Box13
+    3300026: Box14
+    3300028: Box15
+    3300030: Box16
+    3300032: Cone01
+    3300034: Cylinder01
+    3300036: Cylinder02
+    3300038: Gengon01
+    3300040: Gengon02
+    3300042: Gengon03
+    3300044: Gengon04
+    3300046: Gengon05
+    3300048: Gengon06
+    3300050: Gengon07
+    3300052: Gengon08
+    3300054: tower
+    3300056: Tube01
+    4300000: Box05
+    4300002: Gengon01
+    4300004: Box15
+    4300006: Box14
+    4300008: Gengon03
+    4300010: Gengon04
+    4300012: Gengon05
+    4300014: Gengon06
+    4300016: Box13
+    4300018: Box12
+    4300020: Box02
+    4300022: Box03
+    4300024: Box03
+    4300026: Box04
+    4300028: Box11
+    4300030: Box10
+    4300032: Box07
+    4300034: Box08
+    4300036: Cylinder01
+    4300038: Box06
+    4300040: tower
+    4300042: Gengon08
+    4300044: Gengon07
+    4300046: Gengon02
+    4300048: Tube01
+    4300050: Box16
+    4300052: Box09
+    4300054: Cylinder02
+    4300056: Cone01
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 06 - Default
+    second: {fileID: 2100000, guid: a01aba37722bb5e479195e0c6bb2692c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 07 - Default
+    second: {fileID: 2100000, guid: aa2f985052763c248b7e9ee63cdb9f47, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: parede2
+    second: {fileID: 2100000, guid: c7e320ef600e6e3469b119a211a44ea3, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Masonry.Unit Masonry.Brick.Modular.Running.Grey
+    second: {fileID: 2800000, guid: e6d9d23b90da66349b794dbb2530f907, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Masonry.Unit Masonry.Brick.Modular.Running.Grey.bump
+    second: {fileID: 2800000, guid: ac4fe007aac1a7341b551829767f81a6, type: 3}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
