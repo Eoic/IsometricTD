@@ -30,12 +30,10 @@ public class Building : MonoBehaviour
     {
         objectRenderer = GetComponent<Renderer>();
         defaultMaterial = objectRenderer.material;
-        Debug.Log("Awake");
     }
 
     private void Start()
     {
-        Debug.Log("Start");
         onValidPosition = true;
     }
 

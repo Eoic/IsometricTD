@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7951933414999481571}
   - component: {fileID: 7951933414999481580}
   - component: {fileID: 7951933414999481581}
+  - component: {fileID: 9138792448770169539}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -60,7 +61,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildings:
-  - {fileID: 159, guid: e5cec3d40dc686446a7cb181aa735c7e, type: 3}
-  - {fileID: 158, guid: 6fb262aed8929d542b91ce8548f30d85, type: 3}
+  - {fileID: 1960252847, guid: 8b96ea7a3a1be4a49974be40b6ed9f4e, type: 3}
   buildModeEnabled: 0
   buildingId: 0
+--- !u!114 &9138792448770169539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7951933414999481570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4df69e89550e246b9cba8b9b8cbc5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

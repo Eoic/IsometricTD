@@ -34,11 +34,11 @@ public class StructureBuilder : MonoBehaviour
 
         Vector3 localScale = building.transform.localScale; 
         position = new Vector3(Mathf.Round(position.x / localScale.x) / localScale.x, 
-                               position.y + (localScale.y / 2), 
+                               position.y /*+ (localScale.y / 2) */, 
                                Mathf.Round(position.z / localScale.z) / localScale.z);
         building.transform.position = position;
 
-        GameObject buildingReference = Instantiate(building, position, Quaternion.identity);
+        GameObject buildingReference = Instantiate(building, position, building.transform.rotation);
         buildingReference.GetComponent<Building>().SetAsBuilt();
     }
     
@@ -56,6 +56,8 @@ public class StructureBuilder : MonoBehaviour
     // Binds building to mouse cursor and checks for colisions
     public void EnableBuildMode(Constants.Buildings key)
     {
+        Debug.Log(key);
+
         if (BuildModeEnabled)
             Destroy(structureBlueprint);
 
@@ -64,7 +66,7 @@ public class StructureBuilder : MonoBehaviour
         BuildModeEnabled = true;
 
         if (building != null)
-            structureBlueprint = Instantiate(building, Vector3.zero, Quaternion.identity);
+            structureBlueprint = Instantiate(building, Vector3.zero, building.transform.rotation);
         else
             BuildModeEnabled = false;
     }
@@ -73,6 +75,7 @@ public class StructureBuilder : MonoBehaviour
     public void DisableBuildMode()
     {
         BuildModeEnabled = false;
+        BuildingId = Constants.Buildings.None;
         Destroy(structureBlueprint);
     }
     
@@ -86,7 +89,7 @@ public class StructureBuilder : MonoBehaviour
             return structure.position;
 
         return new Vector3(Mathf.Round(cursorPosition.x / structure.localScale.x) / structure.localScale.x, 
-                           cursorPosition.y + (structure.transform.localScale.y / 2), 
+                           cursorPosition.y /* + (structure.transform.localScale.y / 2)*/, 
                            Mathf.Round(cursorPosition.z / structure.localScale.z) / structure.localScale.z);
     }
 }

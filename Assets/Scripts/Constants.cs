@@ -1,13 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Constants : MonoBehaviour
 {
     public enum Buildings
     {
-        SimpleHouseOne = 0,
-        SimpleHouseTwo = 1
+        // Placeholder
+        None = 0,
+
+        // Towers
+        ArcherTower = 1,
+        MageTower = 2,
+
+        // Resource gathering
+        WoodworkingHouse = 3,
+        Quarry = 4
     }
 
     void Awake()
