@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildings:
-  - {fileID: 1960252847, guid: 8b96ea7a3a1be4a49974be40b6ed9f4e, type: 3}
+  - {fileID: 262, guid: 8b96ea7a3a1be4a49974be40b6ed9f4e, type: 3}
   buildModeEnabled: 0
   buildingId: 0
 --- !u!114 &9138792448770169539
