@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1699448540201137533}
   - component: {fileID: 1699448540201137506}
   m_Layer: 0
-  m_Name: dirt_road_spritesheet_light_2 (1)
+  m_Name: DirtRoadCornerLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
