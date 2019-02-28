@@ -1,8 +1,2 @@
-* dirt02
-https://www.picsbud.com/images/rock-dnd-stylized-dirt-texture-8d.html
-
-* grass01
-https://www.textures.com/download/grass0153/48704?q=grass
-
-* grass02
-https://www.textures.com/download/grass0052/12094?q=grass
+* flame
+https://www.textures.com/download/flames0036/64437?q=fire
