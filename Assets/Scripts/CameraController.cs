@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour
     [Header("Rotation")]
     private Quaternion rotationTarget;
     public int RotationSpeed = 10;
-    private int rotated = 0;
+    private int rotated;
 
     // Zooming
     [Header("Zooming")]
@@ -45,6 +45,7 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
+        rotated = (int)transform.rotation.eulerAngles.y;
         zoomSize = Camera.main.orthographicSize;
         rotationTarget = transform.rotation;
         transform.position = new Vector3(OriginX, 0, OriginZ);
@@ -122,11 +123,19 @@ public class CameraController : MonoBehaviour
     {
         Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, zoomSize, Time.deltaTime * ZoomSpeed);
 
-        if (IsPositionValid(dragDelta))
+        if (!dragDelta.Equals(Vector3.zero))
+        {
+            Logger(dragDelta);
             transform.position += dragDelta;
+        }
     }
 
     bool IsPositionValid(Vector3 delta) =>
         (dragDelta.x + transform.position.x <= limitUpperX && dragDelta.x + transform.position.x >= limitLowerX &&
         dragDelta.z + transform.position.z <= limitUpperZ && dragDelta.z + transform.position.z >= limitLowerZ);
+
+    void Logger(Vector3 delta)
+    {
+        Debug.Log((transform.position.x + delta.x));
+    }
 }

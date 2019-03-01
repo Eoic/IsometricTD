@@ -226,7 +226,7 @@ MonoBehaviour:
   MaxZoom: 30
   ZoomSensitivity: 13
   ZoomSpeed: 20
-  limitLowerX: 100
-  limitUpperX: 600
-  limitLowerZ: 100
-  limitUpperZ: 600
+  limitLowerX: 270
+  limitUpperX: 480
+  limitLowerZ: 270
+  limitUpperZ: 480
