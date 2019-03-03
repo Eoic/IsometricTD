@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 262}
   m_LocalRotation: {x: -0.6532815, y: 0.27059805, z: 0.27059805, w: 0.6532815}
-  m_LocalPosition: {x: 339, y: 3.6111947e-18, z: 334}
+  m_LocalPosition: {x: 359, y: 2.9156088e-17, z: 306}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,12 +98,9 @@ MonoBehaviour:
   invalidLocation: {fileID: 2100000, guid: 0adb9821c6138cd4486ff0d492661ffd, type: 2}
   buildingId: 1
   buildingName: ArcherTower
-  hitPoints: 0
   stoneCost: 0
   woodCost: 0
   ironCost: 0
-  hitPointsCurrent: 0
-  isDestroyed: 0
   onValidPosition: 0
   isBuilt: 0
 --- !u!65 &269
