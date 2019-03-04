@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Resource : MonoBehaviour
+public class Resource : MonoBehaviour, IPointerClickHandler
 {
     public enum ResourceType { STONE, IRON, WOOD }
     [SerializeField] private ResourceType type = ResourceType.STONE;
@@ -21,5 +22,10 @@ public class Resource : MonoBehaviour
 
         supply -= amount;
         return amount;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Debug.Log("Click");
     }
 }
