@@ -62,6 +62,7 @@ public class Building : MonoBehaviour
     public void SetAsBuilt()
     {
         objectRenderer.material = defaultMaterial;
+        AudioManager.instance.Play("Building01");
         isBuilt = true;
     }
 }
