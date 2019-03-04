@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Building : MonoBehaviour
+public class Building : MonoBehaviour, IPointerClickHandler
 {
     public LayerMask collisionMask;
     public Material invalidLocation;
@@ -64,5 +65,11 @@ public class Building : MonoBehaviour
         objectRenderer.material = defaultMaterial;
         AudioManager.instance.Play("Building01");
         isBuilt = true;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if(eventData.button == PointerEventData.InputButton.Left)
+            AudioManager.instance.Play("PointerClick");
     }
 }
