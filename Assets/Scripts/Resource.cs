@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Resource : MonoBehaviour
+public class Resource : MonoBehaviour, IPointerClickHandler
 {
     public enum ResourceType { STONE, IRON, WOOD }
     [SerializeField] private ResourceType type = ResourceType.STONE;
-    [SerializeField] private int supply = 100;
+    [SerializeField] private int supply = 5;
 
     public ResourceType Type { get => type; }
     public int Supply { get => supply; }
@@ -21,5 +22,11 @@ public class Resource : MonoBehaviour
 
         supply -= amount;
         return amount;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        AudioManager.instance.PlayMouseClick();
+        // TODO: Open resource info on click
     }
 }

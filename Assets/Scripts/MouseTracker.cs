@@ -47,4 +47,11 @@ public class MouseTracker : MonoBehaviour
         return hit.transform;
     }
 
+    public GameObject GetClickedObject()
+    {
+        if (PerformRaycast())
+            return hit.transform.gameObject;
+
+        return null;
+    }
 }

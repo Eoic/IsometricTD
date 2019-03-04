@@ -9,7 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6796087885830651136}
-  m_Layer: 0
+  - component: {fileID: 2710668902618766405}
+  - component: {fileID: 614730092701814489}
+  m_Layer: 13
   m_Name: Tree03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,6 +35,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2710668902618766405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6060732985863593299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d655bdf721bf4948b2a99de02ecf7ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  supply: 5
+--- !u!65 &614730092701814489
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6060732985863593299}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.69, y: 1.21, z: 0.5}
+  m_Center: {x: 0.47, y: -0.06, z: -0.07}
 --- !u!1001 &1457441061578589996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44,6 +73,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TreeCap01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2618279497998056995, guid: 0025a773346af4f41baf26a8e319e3b1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2021611688491116821, guid: 0025a773346af4f41baf26a8e319e3b1,
         type: 3}
@@ -135,6 +169,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trunk02
       objectReference: {fileID: 0}
+    - target: {fileID: 6409971951439743052, guid: 9903a638c38d56248a6a8465c9521fc0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 911390847156453021, guid: 9903a638c38d56248a6a8465c9521fc0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -209,6 +248,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TreeCap01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2618279497998056995, guid: 0025a773346af4f41baf26a8e319e3b1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2021611688491116821, guid: 0025a773346af4f41baf26a8e319e3b1,
         type: 3}

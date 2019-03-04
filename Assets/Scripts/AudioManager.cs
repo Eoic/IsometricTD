@@ -4,9 +4,9 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
-
+    public Sound mouseClick;
     public static AudioManager instance;
-
+    
     void Awake()
     {
         if (instance == null)
@@ -27,8 +27,12 @@ public class AudioManager : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
         }
-    }
 
+        mouseClick.source = gameObject.AddComponent<AudioSource>();
+        mouseClick.source.clip = mouseClick.clip;
+        mouseClick.source.volume = mouseClick.volume;
+        mouseClick.source.pitch = mouseClick.pitch;
+    }
 
     void Start()
     {
@@ -45,6 +49,7 @@ public class AudioManager : MonoBehaviour
                 return;
             }
         }
+
         Debug.LogWarning("Sound: " + name + " not found!");
     }
 
@@ -58,6 +63,18 @@ public class AudioManager : MonoBehaviour
                 return;
             }
         }
+
         Debug.LogWarning("Sound: " + name + " not found!");
+    }
+
+    public void PlayMouseClick()
+    {
+        if (mouseClick == null)
+        {
+            Debug.LogError("Couldn't play mouse click sound as it's not defined.");
+            return;
+        }
+
+        mouseClick.source.PlayOneShot(mouseClick.clip);
     }
 }
