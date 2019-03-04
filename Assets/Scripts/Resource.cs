@@ -26,6 +26,8 @@ public class Resource : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        Renderer renderer = gameObject.GetComponent<Renderer>();
+        renderer.material.color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
         Debug.Log("Click");
     }
 }
