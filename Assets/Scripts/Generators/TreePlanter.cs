@@ -42,8 +42,8 @@ public class TreePlanter : MonoBehaviour
                     GameObject asset = PrefabUtility.InstantiatePrefab(PickRandomTree()) as GameObject;
                     asset.transform.position = new Vector3(i + transform.position.x, asset.transform.position.y, j + transform.position.z);
                     asset.transform.parent = transform;
-                    //ApplyRotation(asset);
-                    //ApplyScale(asset);
+                    ApplyRotation(asset);
+                    ApplyScale(asset);
                     generatedCount++;
                 }
             }

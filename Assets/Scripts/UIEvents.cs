@@ -4,6 +4,7 @@ public class UIEvents : MonoBehaviour
 {
     public static UIEvents Instance = null;
     [SerializeField] private RectTransform buldingsPanel;
+    [SerializeField] private RectTransform pauseOverlay;
 
     void Awake()
     {
@@ -19,5 +20,7 @@ public class UIEvents : MonoBehaviour
             buldingsPanel.gameObject.SetActive(!isActive);
             StructureBuilder.Instance.DisableBuildMode();
         }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+            pauseOverlay.gameObject.SetActive(!pauseOverlay.gameObject.activeInHierarchy);
     }
 }
