@@ -6,7 +6,7 @@ public class MapSwitch : MonoBehaviour
 {
     private int focusIndex;
     private bool transitionComplete;
-    public Vector3[] cameraFocusPoints;
+    public Transform[] cameraFocusPoints;
     public GameObject worldCamera;
 
     void Start()
@@ -20,7 +20,7 @@ public class MapSwitch : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.N))
         {
             focusIndex = (focusIndex + 1) % cameraFocusPoints.Length;
-            worldCamera.transform.position = cameraFocusPoints[focusIndex];
+            worldCamera.transform.position = new Vector3(cameraFocusPoints[focusIndex].position.x, 0, cameraFocusPoints[focusIndex].position.z);
         }
     }
 }
