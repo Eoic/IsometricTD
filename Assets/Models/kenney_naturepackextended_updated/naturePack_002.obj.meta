@@ -8,6 +8,9 @@ ModelImporter:
     400000: Mesh1_Plate_River_Dirt_Model
     400002: //RootNode
     2100000: Mesh1_Plate_River_Dirt_ModelMat
+    2100002: Wood
+    2100004: Water
+    2100006: Leafs
     2300000: Mesh1_Plate_River_Dirt_Model
     3300000: Mesh1_Plate_River_Dirt_Model
     4300000: Mesh1_Plate_River_Dirt_Model
