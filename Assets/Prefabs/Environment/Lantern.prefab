@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 101009045}
   - component: {fileID: 101009044}
   - component: {fileID: 101009043}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Lantern
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 840501167}
   - component: {fileID: 840501166}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

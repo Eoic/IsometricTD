@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8644257001767324444}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: cactus3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 8644257001767324446}
   - component: {fileID: 8644257001770191676}
   - component: {fileID: 8644257001769224700}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}

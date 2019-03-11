@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7175663170143120492}
   - component: {fileID: 7175663170140220492}
   - component: {fileID: 7175663170141220492}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7175663170143120494}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: rock01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

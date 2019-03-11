@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 326398358841567905}
   - component: {fileID: 326398358844467843}
   - component: {fileID: 326398358843336771}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 326398358841567907}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: aloe
   m_TagString: Untagged
   m_Icon: {fileID: 0}

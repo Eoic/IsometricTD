@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6181788853240336945}
   - component: {fileID: 6181788853241139729}
   - component: {fileID: 6181788853242237137}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Directions Sign Post
   m_TagString: Untagged
   m_Icon: {fileID: 0}

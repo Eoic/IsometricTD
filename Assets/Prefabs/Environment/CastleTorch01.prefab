@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 621742334}
   - component: {fileID: 621742333}
   - component: {fileID: 3178953432458724196}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CastleTorch01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 928346021}
   - component: {fileID: 928346020}
   - component: {fileID: 928346019}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TorchFlameParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4885,7 +4885,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2102619514}
   - component: {fileID: 2102619515}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FlameLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}

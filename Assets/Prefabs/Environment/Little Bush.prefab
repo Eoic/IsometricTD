@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1559800638564203696}
   - component: {fileID: 1559800638567595152}
   - component: {fileID: 1559800638566497872}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Little Bush
   m_TagString: Untagged
   m_Icon: {fileID: 0}
