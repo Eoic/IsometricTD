@@ -11,13 +11,11 @@ public class MusicController : MonoBehaviour
     private void Start()
     {
         int themecount = 0;
+
         foreach (var item in AudioManager.instance.sounds)
-        {
             if (item.name.StartsWith("Theme"))
-            {
                 themecount++;
-            }
-        }
+        
         themeCount = themecount;
     }
 
