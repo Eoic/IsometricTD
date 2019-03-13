@@ -13,8 +13,7 @@ public class CameraController : MonoBehaviour
     // Movement
     [Header("Movement")]
     public int MovementSpeed = 30;
-    public int OriginX = 250;
-    public int OriginZ = 250;
+    public Transform cameraStartPoint;
 
     // Rotation
     [Header("Rotation")]
@@ -48,8 +47,10 @@ public class CameraController : MonoBehaviour
         rotated = (int)transform.rotation.eulerAngles.y;
         zoomSize = Camera.main.orthographicSize;
         rotationTarget = transform.rotation;
-        transform.position = new Vector3(OriginX, 0, OriginZ);
-    }
+
+	if(cameraStartPoint != null)
+            transform.position = new Vector3(cameraStartPoint.position.x, 0, cameraStartPoint.position.z);     
+   }
 
     void Update()
     {

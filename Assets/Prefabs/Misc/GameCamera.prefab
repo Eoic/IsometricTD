@@ -219,8 +219,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 55
-  OriginX: 350
-  OriginZ: 350
+  OriginX: 378
+  OriginZ: -675
   RotationSpeed: 8
   MinZoom: 2
   MaxZoom: 30
