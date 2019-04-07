@@ -63,7 +63,8 @@ public class Building : MonoBehaviour, IPointerClickHandler
     public void SetAsBuilt()
     {
         objectRenderer.material = defaultMaterial;
-        AudioManager.instance.Play("Building01");
+        //AudioManager.instance.Play("Building01");
+        ShowParticleEffects();
         isBuilt = true;
     }
 
@@ -71,5 +72,20 @@ public class Building : MonoBehaviour, IPointerClickHandler
     {
         if(eventData.button == PointerEventData.InputButton.Left)
             AudioManager.instance.Play("PointerClick");
+    }
+
+    void ShowParticleEffects()
+    {
+        Debug.Log("aaaaaa");
+        var particleSystem = GetComponent<ParticleSystem>();
+
+        if(particleSystem != null)
+        {
+            Debug.Log(particleSystem.emission.enabled);
+            particleSystem.Play();
+        } else
+        {
+            Debug.Log("what");
+        }
     }
 }
