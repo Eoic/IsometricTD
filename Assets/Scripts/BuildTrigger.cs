@@ -7,5 +7,6 @@ public class BuildTrigger : MonoBehaviour
     public void SetBuildingID(int buildingId)
     {
         StructureBuilder.Instance.EnableBuildMode((Constants.Buildings)buildingId);
+        Debug.Log("Clicked building button. Setting id to: " + (Constants.Buildings)buildingId);
     }
 }
