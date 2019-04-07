@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4088266796190482746}
   - component: {fileID: 4088266796187058458}
   - component: {fileID: 4088266796188058586}
+  - component: {fileID: 3773654269220636893}
   m_Layer: 0
   m_Name: DesertRock2
   m_TagString: Untagged
@@ -77,3 +78,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &3773654269220636893
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4088266796190326042}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.4808929, y: 0.47233993, z: 0.5298048}
+  m_Center: {x: -0.007877268, y: 0.0045968816, z: -0.019727087}

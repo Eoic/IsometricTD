@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 911390847156453021}
   - component: {fileID: 7933996605560346759}
   - component: {fileID: 5249921805905907201}
+  - component: {fileID: 4434391454201304443}
   m_Layer: 0
   m_Name: Trunk02
   m_TagString: Untagged
@@ -77,3 +78,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &4434391454201304443
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6409971951439743052}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.25231203, y: 0.51111037, z: 0.9225241}
+  m_Center: {x: 0.048714183, y: -0.12735265, z: 0.16971302}
