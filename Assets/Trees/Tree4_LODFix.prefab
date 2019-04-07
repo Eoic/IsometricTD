@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1098128244327016913}
   - component: {fileID: 1098128244327016912}
   m_Layer: 0
-  m_Name: CustomTree4
+  m_Name: Tree4_LODFix
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,7 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0
+  - screenRelativeHeight: 0.15257926
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 3919961656763422517}
