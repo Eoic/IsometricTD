@@ -70,12 +70,8 @@ public class Building : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        /*
         if(eventData.button == PointerEventData.InputButton.Left)
             AudioManager.instance.Play("PointerClick");
-        */
-        // Invoke building options menu on click
-        UIEvents.Instance.DisplayBuildingOptions(this);
     }
 
     void ShowParticleEffects()
