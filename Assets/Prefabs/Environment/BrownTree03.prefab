@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3338205203984499296}
   - component: {fileID: 8024983537881734808}
+  - component: {fileID: 1899387266}
   m_Layer: 13
   m_Name: BrownTree03
   m_TagString: Untagged
@@ -51,6 +52,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &1899387266
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3338205203984604736}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2435424, y: 5.664941, z: 2.2946913}
+  m_Center: {x: -1.1292453, y: 2.3324714, z: -1.2616832}
 --- !u!1 &3338205203984604738
 GameObject:
   m_ObjectHideFlags: 0
