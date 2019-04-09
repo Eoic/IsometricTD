@@ -44,15 +44,15 @@ public class PigMovementController : MonoBehaviour
     {
         if (turnAround)
         {
-            secondsPassed += Time.deltaTime * TurnAroundSpeed;
-            if (secondsPassed >= timeToTurnAround)
+            secondsPassed += Time.deltaTime;
+            if (secondsPassed >= 180/TurnAroundSpeed)
             {
                 turnAround = false;
                 move = true;
                 animator.speed = 1;
                 secondsPassed = 0;
             }
-            transform.Rotate(0, 1 * Time.deltaTime * TurnAroundSpeed, 0);
+            transform.Rotate(0, Time.deltaTime * TurnAroundSpeed, 0);
         }
     }
 

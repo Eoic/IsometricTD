@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6282637101655526273}
   - component: {fileID: 6282637101656329121}
   - component: {fileID: 6282637101657426273}
+  - component: {fileID: 6554014724629485254}
   m_Layer: 11
   m_Name: LargeRock
   m_TagString: Untagged
@@ -77,3 +78,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &6554014724629485254
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6282637101655234465}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.24111001, y: 0.23184547, z: 0.12279335}
+  m_Center: {x: -0.022810813, y: 0.00838379, z: 0.014095083}

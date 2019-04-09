@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4280705408500585307}
   - component: {fileID: 4280705408503452539}
   - component: {fileID: 4280705408502354363}
+  - component: {fileID: 2169231678972338997}
   m_Layer: 11
   m_Name: Altar01
   m_TagString: Untagged
@@ -78,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2169231678972338997
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4280705408500420475}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.569, y: 4.7, z: 6.532}
+  m_Center: {x: 5.2845, y: 2.35, z: 3.266}

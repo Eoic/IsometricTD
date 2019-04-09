@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6181788853240336945}
   - component: {fileID: 6181788853241139729}
   - component: {fileID: 6181788853242237137}
+  - component: {fileID: 7586405104392558508}
   m_Layer: 11
   m_Name: Directions Sign Post
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7586405104392558508
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6181788853240303121}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 7a6969def7d79e74faa1480a5e7e9670, type: 3}

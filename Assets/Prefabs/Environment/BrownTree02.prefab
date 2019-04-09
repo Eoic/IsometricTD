@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8377943648358770476}
   - component: {fileID: 8377943648358000396}
   - component: {fileID: 8377943648357000652}
+  - component: {fileID: 6868573923710669534}
   m_Layer: 13
   m_Name: Mesh1_Large_Oak_Fall_Model
   m_TagString: Untagged
@@ -78,6 +79,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &6868573923710669534
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8377943648359004940}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.02, y: 4.60155, z: 2.6154}
+  m_Center: {x: -1.51, y: 2.300775, z: -1.3077}
 --- !u!1 &8377943648359004942
 GameObject:
   m_ObjectHideFlags: 0

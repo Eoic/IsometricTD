@@ -625,6 +625,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4654320125488553363}
+  - component: {fileID: 136672977320428324}
   m_Layer: 11
   m_Name: GraveyardFence01
   m_TagString: Untagged
@@ -658,6 +659,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &136672977320428324
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4654320125488775603}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.23552, y: 8.703795, z: 1}
+  m_Center: {x: 5.003137, y: 3.8518975, z: -3.6238397e-14}
 --- !u!1 &4654320125488775609
 GameObject:
   m_ObjectHideFlags: 0
