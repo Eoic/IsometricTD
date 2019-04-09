@@ -9,7 +9,6 @@ public class PlayOnTrigger : MonoBehaviour
     {
         if (gateAnimator != null && !gateClosed)
         {
-            Debug.Log("Triggered0");
             gateAnimator.Play("GateClosing");
             gateClosed = true;
         }

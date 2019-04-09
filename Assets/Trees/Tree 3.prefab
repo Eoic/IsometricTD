@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 81416459106928908}
   - component: {fileID: 7838943814194487085}
   m_Layer: 0
-  m_Name: Tree
+  m_Name: Tree 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170,7 +170,7 @@ Material:
     - _TranslucencyViewDependency: 0.7
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _TranslucencyColor: {r: 0.73, g: 0.85, b: 0.40999997, a: 1}
+    - _TranslucencyColor: {r: 0.6509434, g: 0.46143365, b: 0.39609292, a: 1}
     - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _TreeInstanceScale: {r: 1, g: 1, b: 1, a: 1}
 --- !u!43 &43562818025878172
@@ -356,7 +356,7 @@ MonoBehaviour:
   m_Name: Tree Data
   m_EditorClassIdentifier: 
   _uniqueID: 1055
-  materialHash: 1d74fc240e28d2751e7f857bc27c6877215482368
+  materialHash: 7c827b428027bebc6cca3e4545a96551215482368
   root:
     _uniqueID: 1
     seed: 1234
