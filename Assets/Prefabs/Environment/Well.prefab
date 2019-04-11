@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7057989384349975514}
   - component: {fileID: 7057989384349205498}
   - component: {fileID: 7057989384348205370}
+  - component: {fileID: 3614712211389527803}
   m_Layer: 11
   m_Name: Well
   m_TagString: Untagged
@@ -80,3 +81,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &3614712211389527803
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7057989384350408698}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.09926398, y: 0.09842726, z: 0.094420284}
+  m_Center: {x: -0.0015752688, y: 0.00000018626456, z: 0.047210142}

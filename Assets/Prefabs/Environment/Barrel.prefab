@@ -80,6 +80,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!136 &4016299144627915103
+CapsuleCollider:
 --- !u!114 &296676493
 MonoBehaviour:
   m_ObjectHideFlags: 0

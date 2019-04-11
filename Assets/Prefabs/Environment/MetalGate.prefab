@@ -19,6 +19,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &1106591091491128074
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3457550996644078647}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.71441007, y: 7.300692, z: 6.6215105}
+  m_Center: {x: 0.35720503, y: 3.650346, z: 3.3107553}
 --- !u!1 &3457550998613138319
 GameObject:
   m_ObjectHideFlags: 0

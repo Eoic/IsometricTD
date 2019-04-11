@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 101009045}
   - component: {fileID: 101009044}
   - component: {fileID: 101009043}
+  - component: {fileID: 3989816202798345441}
   m_Layer: 11
   m_Name: Lantern
   m_TagString: Untagged
@@ -78,6 +79,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3989816202798345441
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101009042}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 2b70624914a49f949a63689f736a5898, type: 3}
 --- !u!1 &840501165
 GameObject:
   m_ObjectHideFlags: 0

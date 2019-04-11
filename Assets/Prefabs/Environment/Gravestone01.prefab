@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5581216532700007239}
   - component: {fileID: 5581216532700810087}
   - component: {fileID: 5581216532701776295}
+  - component: {fileID: 6198907838782267429}
   m_Layer: 11
   m_Name: Gravestone01
   m_TagString: Untagged
@@ -77,3 +78,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &6198907838782267429
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5581216532699584359}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.8510003, y: 10.485001, z: 3.2000005}
+  m_Center: {x: 2.4255002, y: 5.2425003, z: 1.6000003}
