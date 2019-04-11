@@ -7,16 +7,17 @@ public class Building : MonoBehaviour, IPointerClickHandler
     public Material invalidLocation;
     private Material defaultMaterial;
     private Renderer objectRenderer;
-    [SerializeField] private Constants.Buildings buildingId;
-    [SerializeField] private string buildingName;
+    private LineRenderer line;
+    [SerializeField] private int viewCircleSegments;
+    [SerializeField] private int viewRange;
+    [SerializeField] private string buildingId;
     [SerializeField] private int stoneCost;
     [SerializeField] private int woodCost;
     [SerializeField] private int ironCost;
     [SerializeField] private bool onValidPosition;
     [SerializeField] private bool isBuilt = false;
     
-    public Constants.Buildings BuildingId { get => buildingId; set => buildingId = value; }
-    public string BuildingName { get => buildingName; }
+    public string BuildingId { get => buildingId; set => buildingId = value; }
     public int StoneCost { get => stoneCost; }
     public int WoodCost { get => woodCost; }
     public int IronCost { get => ironCost; }
@@ -31,6 +32,9 @@ public class Building : MonoBehaviour, IPointerClickHandler
     private void Start()
     {
         onValidPosition = true;
+        line = gameObject.GetComponent<LineRenderer>();
+        line.positionCount = viewCircleSegments + 1;
+        CreateViewCircle();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -86,4 +90,16 @@ public class Building : MonoBehaviour, IPointerClickHandler
         UIEvents.Instance.DisplayBuildingOptions(this);
     }
 
+    private void CreateViewCircle()
+    {
+        float x, z, angle = 90f;
+
+        for (int i = 0; i < viewCircleSegments + 1; i++)
+        {
+            x = Mathf.Sin(Mathf.Deg2Rad * angle) * viewRange;
+            z = Mathf.Cos(Mathf.Deg2Rad * angle) * viewRange;
+            line.SetPosition(i, new Vector3(x, 0, z));
+            angle += 360f / viewRange;
+        }
+    }
 }

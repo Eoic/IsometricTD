@@ -32,6 +32,7 @@ public class UIEvents : MonoBehaviour
 
     public void DisplayBuildingOptions(Building building)
     {
+        /*
         buildingInfo.gameObject.SetActive(true);
         var destroyButton = buildingInfo.GetChild(1).GetComponent<Button>();
 
@@ -41,8 +42,9 @@ public class UIEvents : MonoBehaviour
             destroyButton.onClick.AddListener(() => {
                 var animator = building.GetComponent<Animator>();
                 animator.Play("TowerDemolition");
-                //Destroy(building);
+                Destroy(building);
             });
         }
+        */
     }
 }

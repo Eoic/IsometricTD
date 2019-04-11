@@ -125,18 +125,10 @@ public class CameraController : MonoBehaviour
         Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, zoomSize, Time.deltaTime * ZoomSpeed);
 
         if (!dragDelta.Equals(Vector3.zero))
-        {
-            Logger(dragDelta);
             transform.position += dragDelta;
-        }
     }
 
     bool IsPositionValid(Vector3 delta) =>
         (dragDelta.x + transform.position.x <= limitUpperX && dragDelta.x + transform.position.x >= limitLowerX &&
         dragDelta.z + transform.position.z <= limitUpperZ && dragDelta.z + transform.position.z >= limitLowerZ);
-
-    void Logger(Vector3 delta)
-    {
-        Debug.Log((transform.position.x + delta.x));
-    }
 }

@@ -4,16 +4,15 @@ using UnityEngine;
 public class StructureBuilder : MonoBehaviour
 {
     // FIELDS
-    [SerializeField] private List<GameObject> buildings;
-    [SerializeField] private bool buildModeEnabled;
-    [SerializeField] private Constants.Buildings buildingId;
+    public List<GameObject> buildings;
+    public bool buildModeEnabled;
+    public string buildingId;
     private GameObject structureBlueprint;
 
     // PROPERTIES
     public static StructureBuilder Instance { get; set; } = null;
-    public List<GameObject> Buildings { get => buildings; set => buildings = value; }
     public bool BuildModeEnabled { get => buildModeEnabled; set => buildModeEnabled = value; }
-    public Constants.Buildings BuildingId { get => buildingId; set => buildingId = value; }
+    public string BuildingId { get => buildingId; set => buildingId = value; }
 
     void Awake()
     {
@@ -21,52 +20,62 @@ public class StructureBuilder : MonoBehaviour
             Instance = this;
     }
 
-    public void CreateStructure(Constants.Buildings key)
+    private void Start()
     {
-        GameObject building = Buildings.Find(item => item.GetComponent<Building>().BuildingId == key);
+        buildModeEnabled = false;
+        buildingId = "NONE";
+    }
+
+    public void CreateStructure(string key)
+    {
+        Debug.Log("Building is: " + key);
+        GameObject building = buildings.Find(item => item.GetComponentInChildren<Building>().BuildingId == key);
         Vector3 position = MouseTracker.Instance.GetMousePosition();
 
         if (building == null || BuildModeEnabled == false || position.Equals(Vector3.negativeInfinity))
+        {
+            Debug.LogWarning("Building with id " + key + " was not found.");
             return;
+        }
         
-        if (!structureBlueprint.GetComponent<Building>().OnValidPosition)
+        if (!structureBlueprint.GetComponentInChildren<Building>().OnValidPosition)
             return;
 
         Vector3 localScale = building.transform.localScale; 
         position = new Vector3(Mathf.Round(position.x / localScale.x) / localScale.x, 
-                               position.y /*+ (localScale.y / 2) */, 
-                               Mathf.Round(position.z / localScale.z) / localScale.z);
+                               position.y, Mathf.Round(position.z / localScale.z) / localScale.z);
         building.transform.position = position;
 
         GameObject buildingReference = Instantiate(building, position, building.transform.rotation);
-        buildingReference.GetComponent<Building>().SetAsBuilt();
+        buildingReference.GetComponentInChildren<Building>().SetAsBuilt();
     }
     
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && buildModeEnabled)
             CreateStructure(BuildingId);
         else if (Input.GetMouseButtonDown(1))
             DisableBuildMode();
 
         if (buildModeEnabled)
+        {
+            Debug.Log("Build enabled");
             structureBlueprint.transform.position = GetBuildingPosition(structureBlueprint.transform);
+        }
     }
 
     // Binds building to mouse cursor and checks for colisions
-    public void EnableBuildMode(Constants.Buildings key)
+    public void EnableBuildMode(string key)
     {
-        Debug.Log(key);
-
         if (BuildModeEnabled)
             Destroy(structureBlueprint);
 
-        BuildingId = key;
-        GameObject building = Buildings.Find(item => item.GetComponent<Building>().BuildingId == key);
+        BuildingId = string.Copy(key);
+        GameObject building = buildings.Find(item => item.GetComponentInChildren<Building>().BuildingId.Equals(key));
         BuildModeEnabled = true;
 
         if (building != null)
-            structureBlueprint = Instantiate(building, Vector3.zero, building.transform.rotation);
+            structureBlueprint = Instantiate(building, MouseTracker.Instance.GetMousePosition(), building.transform.rotation);
         else
             BuildModeEnabled = false;
     }
@@ -75,7 +84,7 @@ public class StructureBuilder : MonoBehaviour
     public void DisableBuildMode()
     {
         BuildModeEnabled = false;
-        BuildingId = Constants.Buildings.None;
+        BuildingId = "NONE";
         Destroy(structureBlueprint);
     }
     
@@ -89,7 +98,6 @@ public class StructureBuilder : MonoBehaviour
             return structure.position;
 
         return new Vector3(Mathf.Round(cursorPosition.x / structure.localScale.x) / structure.localScale.x, 
-                           cursorPosition.y /* + (structure.transform.localScale.y / 2)*/, 
-                           Mathf.Round(cursorPosition.z / structure.localScale.z) / structure.localScale.z);
+                           cursorPosition.y, Mathf.Round(cursorPosition.z / structure.localScale.z) / structure.localScale.z);
     }
 }
