@@ -32,9 +32,12 @@ public class Building : MonoBehaviour, IPointerClickHandler
     private void Start()
     {
         onValidPosition = true;
+
+        /*
         line = gameObject.GetComponent<LineRenderer>();
         line.positionCount = viewCircleSegments + 1;
         CreateViewCircle();
+        */
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -98,7 +101,7 @@ public class Building : MonoBehaviour, IPointerClickHandler
         {
             x = Mathf.Sin(Mathf.Deg2Rad * angle) * viewRange;
             z = Mathf.Cos(Mathf.Deg2Rad * angle) * viewRange;
-            line.SetPosition(i, new Vector3(x, 0, z));
+            line.SetPosition(i, new Vector3(x + gameObject.transform.position.x, 1, z + gameObject.transform.position.z));
             angle += 360f / viewRange;
         }
     }
