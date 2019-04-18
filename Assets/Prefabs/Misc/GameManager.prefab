@@ -62,5 +62,6 @@ MonoBehaviour:
   buildings:
   - {fileID: 6148600418977616338, guid: abb681d9dc5f8d34b9e23642e40dfb2a, type: 3}
   - {fileID: 7259556230147315165, guid: 822f1880e17f0e3498629fac3ec2a2ca, type: 3}
+  - {fileID: 4345710158864705756, guid: 3bd3e53c38ede63489c12626c5aa70d1, type: 3}
   buildModeEnabled: 0
   buildingId: NONE
