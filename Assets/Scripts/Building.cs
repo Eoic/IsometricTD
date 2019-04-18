@@ -7,9 +7,8 @@ public class Building : MonoBehaviour, IPointerClickHandler
     public Material invalidLocation;
     private Material defaultMaterial;
     private Renderer objectRenderer;
-    private LineRenderer line;
-    [SerializeField] private int viewCircleSegments;
-    [SerializeField] private int viewRange;
+    public Transform viewRange;
+    [Range(1, 50)] public int viewRangeSize = 1;
     [SerializeField] private string buildingId;
     [SerializeField] private int stoneCost;
     [SerializeField] private int woodCost;
@@ -31,13 +30,8 @@ public class Building : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
+        viewRange.transform.localScale = new Vector3(viewRangeSize, viewRangeSize, 1);
         onValidPosition = true;
-
-        /*
-        line = gameObject.GetComponent<LineRenderer>();
-        line.positionCount = viewCircleSegments + 1;
-        CreateViewCircle();
-        */
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -66,13 +60,14 @@ public class Building : MonoBehaviour, IPointerClickHandler
             onValidPosition = true;
         }
     }
-    //AudioManager.instance.Play("Building01");
 
     public void SetAsBuilt()
     {
         objectRenderer.material = defaultMaterial;
         ShowParticleEffects();
         isBuilt = true;
+        viewRange.gameObject.SetActive(false);
+        //AudioManager.instance.Play("Building01");
     }
 
     void ShowParticleEffects()
@@ -91,18 +86,5 @@ public class Building : MonoBehaviour, IPointerClickHandler
         */
         // Invoke building options menu on click
         UIEvents.Instance.DisplayBuildingOptions(this);
-    }
-
-    private void CreateViewCircle()
-    {
-        float x, z, angle = 90f;
-
-        for (int i = 0; i < viewCircleSegments + 1; i++)
-        {
-            x = Mathf.Sin(Mathf.Deg2Rad * angle) * viewRange;
-            z = Mathf.Cos(Mathf.Deg2Rad * angle) * viewRange;
-            line.SetPosition(i, new Vector3(x + gameObject.transform.position.x, 1, z + gameObject.transform.position.z));
-            angle += 360f / viewRange;
-        }
     }
 }
