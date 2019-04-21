@@ -59,7 +59,6 @@ public class StructureBuilder : MonoBehaviour
 
         if (buildModeEnabled)
         {
-            Debug.Log("Build enabled");
             structureBlueprint.transform.position = GetBuildingPosition(structureBlueprint.transform);
         }
     }
