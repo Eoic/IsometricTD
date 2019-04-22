@@ -13,6 +13,7 @@ public class StructureBuilder : MonoBehaviour
     public static StructureBuilder Instance { get; set; } = null;
     public bool BuildModeEnabled { get => buildModeEnabled; set => buildModeEnabled = value; }
     public string BuildingId { get => buildingId; set => buildingId = value; }
+    public List<GameObject> Buildings { get => buildings; }
 
     void Awake()
     {

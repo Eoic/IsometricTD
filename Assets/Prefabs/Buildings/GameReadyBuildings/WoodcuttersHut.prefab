@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4345710158864705756}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 475, y: 0.00000011920929, z: -722}
+  m_LocalPosition: {x: 436, y: 0.00000011920929, z: -565}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6037726378793635276}
@@ -78,6 +78,7 @@ MonoBehaviour:
     m_Bits: 4608
   invalidLocation: {fileID: 2100000, guid: 0adb9821c6138cd4486ff0d492661ffd, type: 2}
   viewRange: {fileID: 3055554365118364074}
+  buildingName: Woodcutters hut
   viewRangeSize: 10
   buildingId: BUILDING_WOODCUTTER
   stoneCost: 0

@@ -127,6 +127,7 @@ MonoBehaviour:
     m_Bits: 4608
   invalidLocation: {fileID: 2100000, guid: 0adb9821c6138cd4486ff0d492661ffd, type: 2}
   viewRange: {fileID: 7786595701010695926}
+  buildingName: Bomber tower
   viewRangeSize: 15
   buildingId: BUILDING_TOWER_ARCHER
   stoneCost: 10

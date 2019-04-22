@@ -5,9 +5,12 @@ public class Building : MonoBehaviour, IPointerClickHandler
 {
     public LayerMask collisionMask;
     public Material invalidLocation;
+    public Transform viewRange;
+    public string buildingName;
+
     private Material defaultMaterial;
     private Renderer objectRenderer;
-    public Transform viewRange;
+
     [Range(1, 50)] public int viewRangeSize = 1;
     [SerializeField] private string buildingId;
     [SerializeField] private int stoneCost;
@@ -17,6 +20,7 @@ public class Building : MonoBehaviour, IPointerClickHandler
     [SerializeField] private bool isBuilt = false;
     
     public string BuildingId { get => buildingId; set => buildingId = value; }
+    public string Name { get => buildingName; }
     public int StoneCost { get => stoneCost; }
     public int WoodCost { get => woodCost; }
     public int IronCost { get => ironCost; }

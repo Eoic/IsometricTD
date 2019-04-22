@@ -77,6 +77,7 @@ MonoBehaviour:
     m_Bits: 4608
   invalidLocation: {fileID: 2100000, guid: 0adb9821c6138cd4486ff0d492661ffd, type: 2}
   viewRange: {fileID: 8726252922938241363}
+  buildingName: Stone mine
   viewRangeSize: 1
   buildingId: BUILDING_MINE
   stoneCost: 0
