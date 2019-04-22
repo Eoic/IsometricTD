@@ -28,24 +28,32 @@ public class StructureBuilder : MonoBehaviour
 
     public void CreateStructure(string key)
     {
-        Debug.Log("Building is: " + key);
+        // Find building with provided key
         GameObject building = buildings.Find(item => item.GetComponentInChildren<Building>().BuildingId == key);
         Vector3 position = MouseTracker.Instance.GetMousePosition();
 
+        // Game manager does not have reference to bilding with this key
         if (building == null || BuildModeEnabled == false || position.Equals(Vector3.negativeInfinity))
         {
             Debug.LogWarning("Building with id " + key + " was not found.");
             return;
         }
         
+        // Building is not on valid surface
         if (!structureBlueprint.GetComponentInChildren<Building>().OnValidPosition)
             return;
 
-        Vector3 localScale = building.transform.localScale; 
-        position = new Vector3(Mathf.Round(position.x / localScale.x) / localScale.x, 
-                               position.y, Mathf.Round(position.z / localScale.z) / localScale.z);
-        building.transform.position = position;
+        // Not enough resources to build this building.
+        if (!ResourceManager.Instance.ConsumeBuildingResources(building.GetComponentInChildren<Building>()))
+        {
+            Debug.LogWarning("Not enough resources.");
+            return;
+        }
 
+        // Place building
+        Vector3 localScale = building.transform.localScale; 
+        position = new Vector3(Mathf.Round(position.x / localScale.x) / localScale.x, position.y, Mathf.Round(position.z / localScale.z) / localScale.z);
+        building.transform.position = position;
         GameObject buildingReference = Instantiate(building, position, building.transform.rotation);
         buildingReference.GetComponentInChildren<Building>().SetAsBuilt();
     }
@@ -58,9 +66,7 @@ public class StructureBuilder : MonoBehaviour
             DisableBuildMode();
 
         if (buildModeEnabled)
-        {
             structureBlueprint.transform.position = GetBuildingPosition(structureBlueprint.transform);
-        }
     }
 
     // Binds building to mouse cursor and checks for colisions

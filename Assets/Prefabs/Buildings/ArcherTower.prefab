@@ -129,9 +129,9 @@ MonoBehaviour:
   viewRange: {fileID: 7786595701010695926}
   viewRangeSize: 15
   buildingId: BUILDING_TOWER_ARCHER
-  stoneCost: 0
-  woodCost: 0
-  ironCost: 0
+  stoneCost: 10
+  woodCost: 10
+  ironCost: 10
   onValidPosition: 0
   isBuilt: 0
 --- !u!1001 &6721112960850954518
@@ -200,21 +200,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551575562950021088, guid: c438df2d45b810349af828f130b0feca,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551575562950021088, guid: c438df2d45b810349af828f130b0feca,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 113098624013400049, guid: c438df2d45b810349af828f130b0feca,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c438df2d45b810349af828f130b0feca, type: 3}

@@ -1,82 +1,87 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ResourceManager : MonoBehaviour
 {
-    public static ResourceManager instance = null;
-    public int Stone { get => stone; }
-    public int Wood { get => wood; }
-    public int Iron { get => iron; }
+    public static ResourceManager Instance;
 
-    [SerializeField] private int stone;
+    public Text woodText;
+    public Text stoneText;
+    public Text ironText;
+
     [SerializeField] private int wood;
+    [SerializeField] private int stone;
     [SerializeField] private int iron;
 
+    private const int resourceLimitMax = 50_000;
+    
     private void Awake()
     {
-        if (instance == null)
-            instance = this;
+        if (Instance == null)
+            Instance = this;
     }
 
-    // Inc.
-    public void AddStone(int amount)
+    private void Start()
     {
-        if (!IsValueValid(amount))
-            return;
-
-        stone += amount;
+        UpdateResourceDisplay();
     }
 
     public void AddWood(int amount)
     {
-        if (!IsValueValid(amount))
-            return;
+        if (wood + amount <= resourceLimitMax)
+        {
+            wood += amount;
+            woodText.text = wood.ToString();
+        }
+    }
 
-        wood += amount;
+    public void AddStone(int amount)
+    {
+        if (stone + amount <= resourceLimitMax)
+        {
+            stone += amount;
+            stoneText.text = stone.ToString();
+        }
     }
 
     public void AddIron(int amount)
     {
-        if (!IsValueValid(amount))
-            return;
-
-        iron += amount;
+        if (iron + amount <= resourceLimitMax)
+        {
+            iron += amount;
+            ironText.text = iron.ToString();
+        }
     }
 
-    //Dec.
-    public bool ConsumeStone(int amount)
+    public bool ConsumeBuildingResources(Building building)
     {
-        if (stone - amount < 0)
+        if (building == null)
+        {
+            Debug.LogError("Building reference is null.");
+            return false;
+        }
+
+        if (building.WoodCost < 0 || building.StoneCost < 0 || building.IronCost < 0)
             return false;
 
-        stone -= amount;
-        return true;
+        if(wood - building.WoodCost >= 0 && stone - building.StoneCost >= 0 && iron - building.IronCost >= 0)
+        {
+            wood -= building.WoodCost;
+            stone -= building.StoneCost;
+            iron -= building.IronCost;
+            UpdateResourceDisplay();
+            return true;
+        }
+
+        return false;
     }
 
-    public bool ConsumeWood(int amount)
+    public void UpdateResourceDisplay()
     {
-        if (stone - amount < 0)
-            return false;
-
-        stone -= amount;
-        return true;
-    }
-
-    public bool ConsumeIron(int amount)
-    {
-        if (stone - amount < 0)
-            return false;
-
-        stone -= amount;
-        return true;
-    }
-
-    private bool IsValueValid(int amount)
-    {
-        if (amount <= 0)
-            return false;
-
-        return true;
+        woodText.text = wood.ToString().TrimEnd();
+        stoneText.text = stone.ToString().TrimEnd();
+        ironText.text = iron.ToString().TrimEnd();
     }
 }
