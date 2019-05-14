@@ -88,7 +88,6 @@ GameObject:
   - component: {fileID: 1948541285}
   - component: {fileID: 8049416894923942676}
   - component: {fileID: 9188352015447998230}
-  - component: {fileID: 2721652420165402451}
   m_Layer: 10
   m_Name: GrassToSandTile
   m_TagString: Untagged
@@ -156,17 +155,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &2721652420165402451
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5324126895044310067}
-  m_Material: {fileID: 13400000, guid: 09476af15218c1b4bb5ee725fe828b95, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}

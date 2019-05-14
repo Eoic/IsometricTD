@@ -122,13 +122,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df3a840f862feb94ab5fdef3d3f81d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  viewRangeSize: 10
   collisionMask:
     serializedVersion: 2
     m_Bits: 4608
   invalidLocation: {fileID: 2100000, guid: 0adb9821c6138cd4486ff0d492661ffd, type: 2}
-  viewRange: {fileID: 7786595701010695926}
-  buildingName: Bomber tower
-  viewRangeSize: 15
+  buildingName: Archer tower
   buildingId: BUILDING_TOWER_ARCHER
   stoneCost: 10
   woodCost: 10

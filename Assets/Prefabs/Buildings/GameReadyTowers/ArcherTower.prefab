@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6148600418977616338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 384, y: 0.00000011920929, z: -703}
+  m_LocalPosition: {x: 387, y: 0.00000011920929, z: -661}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6148600419748925521}
@@ -100,14 +100,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6909402652546634796, guid: da616cb5b9fddd74cad7d4232da99c7e,
         type: 3}
-      propertyPath: buildingName
-      value: Archer tower
-      objectReference: {fileID: 0}
+      propertyPath: viewRange
+      value: 
+      objectReference: {fileID: 7401838694250403846}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da616cb5b9fddd74cad7d4232da99c7e, type: 3}
 --- !u!4 &6148600419748925521 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6909402652546240161, guid: da616cb5b9fddd74cad7d4232da99c7e,
+    type: 3}
+  m_PrefabInstance: {fileID: 772110718640774896}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7401838694250403846 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7786595701010695926, guid: da616cb5b9fddd74cad7d4232da99c7e,
     type: 3}
   m_PrefabInstance: {fileID: 772110718640774896}
   m_PrefabAsset: {fileID: 0}

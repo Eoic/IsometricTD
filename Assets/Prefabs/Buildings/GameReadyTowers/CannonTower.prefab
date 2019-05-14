@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7259556230147315165}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 389, y: 0.00000011920929, z: -705}
+  m_LocalPosition: {x: 393, y: 0.00000011920929, z: -704}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 607230076157056291}
@@ -100,14 +100,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6280901225525559313, guid: ddd1c1f6c77277f49a0232ae3f93b5c9,
         type: 3}
-      propertyPath: buildingName
-      value: Cannon tower
-      objectReference: {fileID: 0}
+      propertyPath: viewRange
+      value: 
+      objectReference: {fileID: 8646590624498730255}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddd1c1f6c77277f49a0232ae3f93b5c9, type: 3}
 --- !u!4 &607230076157056291 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7841417194833883499, guid: ddd1c1f6c77277f49a0232ae3f93b5c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 7259556230802236488}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8646590624498730255 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1387605326668800327, guid: ddd1c1f6c77277f49a0232ae3f93b5c9,
     type: 3}
   m_PrefabInstance: {fileID: 7259556230802236488}
   m_PrefabAsset: {fileID: 0}

@@ -83,6 +83,6 @@ MonoBehaviour:
   woodText: {fileID: 0}
   stoneText: {fileID: 0}
   ironText: {fileID: 0}
-  wood: 25
-  stone: 25
-  iron: 25
+  wood: 1000
+  stone: 1000
+  iron: 1000

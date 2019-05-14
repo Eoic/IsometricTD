@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4345710158864705756}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 436, y: 0.00000011920929, z: -565}
+  m_LocalPosition: {x: 479, y: 0.00000011920929, z: -726}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6037726378793635276}
@@ -61,6 +61,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.548556, y: 2.4172976, z: 2.0713003}
   m_Center: {x: -0.34324512, y: -0.82281667, z: 1.0356501}
+--- !u!135 &2116074236797261539
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6037726378794127852}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.4
+  m_Center: {x: -1, y: -1, z: 0}
 --- !u!114 &340214999112317836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,19 +86,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df3a840f862feb94ab5fdef3d3f81d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  viewRangeSize: 10
   collisionMask:
     serializedVersion: 2
     m_Bits: 4608
   invalidLocation: {fileID: 2100000, guid: 0adb9821c6138cd4486ff0d492661ffd, type: 2}
-  viewRange: {fileID: 3055554365118364074}
   buildingName: Woodcutters hut
-  viewRangeSize: 10
+  viewRange: {fileID: 3055554365118364074}
   buildingId: BUILDING_WOODCUTTER
   stoneCost: 0
   woodCost: 0
   ironCost: 0
   onValidPosition: 0
   isBuilt: 0
+--- !u!114 &3876305892467750751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6037726378794127852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d9f1b94f87ca04f99d15519ad3e91e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceLayerMask:
+    serializedVersion: 2
+    m_Bits: 8192
 --- !u!1001 &1958566289225954890
 PrefabInstance:
   m_ObjectHideFlags: 0

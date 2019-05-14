@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 public class ShowInfoOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -22,10 +23,10 @@ public class ShowInfoOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExit
             if (buildingGameObj != null)
             {
                 Building building = buildingGameObj.GetComponentInChildren<Building>();
-                buildingInfoPanel.GetChild(0).GetComponent<Text>().text = building.Name;
-                buildingInfoPanel.GetChild(1).GetComponent<Text>().text = building.WoodCost.ToString();
-                buildingInfoPanel.GetChild(3).GetComponent<Text>().text = building.StoneCost.ToString();
-                buildingInfoPanel.GetChild(5).GetComponent<Text>().text = building.IronCost.ToString();
+                buildingInfoPanel.GetChild(0).GetComponent<TextMeshProUGUI>().text = building.Name;
+                buildingInfoPanel.GetChild(1).GetComponent<TextMeshProUGUI>().text = building.WoodCost.ToString();
+                buildingInfoPanel.GetChild(2).GetComponent<TextMeshProUGUI>().text = building.StoneCost.ToString();
+                buildingInfoPanel.GetChild(3).GetComponent<TextMeshProUGUI>().text = building.IronCost.ToString();
 
                 // TODO: If tower script was found, additionally display tower damage per seconds
             }

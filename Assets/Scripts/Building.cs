@@ -3,15 +3,15 @@ using UnityEngine.EventSystems;
 
 public class Building : MonoBehaviour, IPointerClickHandler
 {
+    [Range(1, 50)] public int viewRangeSize = 1;
     public LayerMask collisionMask;
     public Material invalidLocation;
-    public Transform viewRange;
     public string buildingName;
+    public Transform viewRange;
 
     private Material defaultMaterial;
     private Renderer objectRenderer;
 
-    [Range(1, 50)] public int viewRangeSize = 1;
     [SerializeField] private string buildingId;
     [SerializeField] private int stoneCost;
     [SerializeField] private int woodCost;
@@ -34,7 +34,9 @@ public class Building : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
-        viewRange.transform.localScale = new Vector3(viewRangeSize, viewRangeSize, 1);
+        if (viewRange != null)
+            viewRange.transform.localScale = new Vector3(viewRangeSize, viewRangeSize, 1);
+        
         onValidPosition = true;
     }
 
@@ -70,7 +72,10 @@ public class Building : MonoBehaviour, IPointerClickHandler
         objectRenderer.material = defaultMaterial;
         ShowParticleEffects();
         isBuilt = true;
-        viewRange.gameObject.SetActive(false);
+
+        if (viewRange != null)
+            viewRange.gameObject.SetActive(false);
+
         //AudioManager.instance.Play("Building01");
     }
 

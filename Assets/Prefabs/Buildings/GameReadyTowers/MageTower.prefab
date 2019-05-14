@@ -41,13 +41,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df3a840f862feb94ab5fdef3d3f81d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  viewRangeSize: 10
   collisionMask:
     serializedVersion: 2
     m_Bits: 4608
   invalidLocation: {fileID: 2100000, guid: 0adb9821c6138cd4486ff0d492661ffd, type: 2}
-  viewRange: {fileID: 1115007485338238902}
   buildingName: Mage tower
-  viewRangeSize: 10
+  viewRange: {fileID: 1115007485338238902}
   buildingId: BUILDING_TOWER_MAGIC
   stoneCost: 30
   woodCost: 45
@@ -78,7 +78,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4481352444302566876}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 384, y: 0.00000011920929, z: -697}
+  m_LocalPosition: {x: 360, y: 0.00000011920929, z: -658}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4481352444140375941}
@@ -110,7 +110,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4481352444461860728}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.18, y: 0, z: 0.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4481352446229663184}

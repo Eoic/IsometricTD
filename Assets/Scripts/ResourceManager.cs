@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager Instance;
 
-    public Text woodText;
-    public Text stoneText;
-    public Text ironText;
+    public TextMeshProUGUI woodText;
+    public TextMeshProUGUI stoneText;
+    public TextMeshProUGUI ironText;
 
     [SerializeField] private int wood;
     [SerializeField] private int stone;
