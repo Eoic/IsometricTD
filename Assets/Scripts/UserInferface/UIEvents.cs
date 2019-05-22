@@ -3,7 +3,6 @@
 public class UIEvents : MonoBehaviour
 {
     public static UIEvents Instance = null;
-    [SerializeField] private RectTransform pauseOverlay;
 
     // Building menu
     public RectTransform resourceBuildingsPanel;
@@ -56,10 +55,6 @@ public class UIEvents : MonoBehaviour
                     referenceToOpened = towersPanel;
                 }
             }
-        } else if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            bool pauseMenuActive = pauseOverlay.gameObject.activeInHierarchy;
-            TogglePanel(pauseOverlay, !pauseMenuActive);
         }
     }
     
@@ -112,10 +107,5 @@ public class UIEvents : MonoBehaviour
             });
         }
         */
-    }
-
-    public void OpenPauseMenu()
-    {
-        TogglePanel(pauseOverlay, true);
     }
 }
