@@ -10,7 +10,7 @@ public class ShootEnemies : MonoBehaviour
     public LayerMask enemyLayer;
 
     // Should be in other class
-    public float shotCooldown = 1f;
+    public float shotCooldown = 5f;
     public int damage;
 
     private Collider[] collisions;
@@ -32,10 +32,7 @@ public class ShootEnemies : MonoBehaviour
             if (projectileBlueprint != null)
             {
                 projectileBlueprint.GetComponent<Projectile>().InitializeFields(damage, enemy.transform.position);
-                var rotationTarget = Quaternion.LookRotation(enemy.transform.position - transform.position);
-                var initialRotation = Quaternion.Slerp(transform.rotation, rotationTarget, 2f);
-                var a = Instantiate(projectileBlueprint, projectileSpawn.position, initialRotation);
-                a.GetComponent<Projectile>().InitializeFields(damage, enemy.transform.position);
+                Instantiate(projectileBlueprint, projectileSpawn.position, Quaternion.identity).GetComponent<Projectile>().InitializeFields(damage, enemy.transform.position);
             }
         }
     }
