@@ -1,9 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 public class ShootEnemies : MonoBehaviour
 {
+    public GameObject projectileBlueprint;
+    public Transform projectileSpawn;
+
     public float radius;
     public LayerMask enemyLayer;
 
@@ -13,10 +15,8 @@ public class ShootEnemies : MonoBehaviour
 
     private Collider[] collisions;
 
-    private void Start()
-    {
-        InvokeRepeating("Attack", 1f, shotCooldown);
-    }
+    private void Start() =>
+        InvokeRepeating("Attack", 2f, shotCooldown);
 
     public void Attack()
     {
@@ -24,10 +24,19 @@ public class ShootEnemies : MonoBehaviour
 
         if (collisions.Length > 0)
         {
-            int randomEnemy = Random.Range(0, collisions.Length);
-            Debug.Log("Rand: " + randomEnemy);
+            // Select enemy to fire at
+            int randomEnemy = UnityEngine.Random.Range(0, collisions.Length);
             EnemyController enemy = collisions[randomEnemy].gameObject.GetComponent<EnemyController>();
-            enemy.TakeDamage(damage);
+
+            // Create new projectile
+            if (projectileBlueprint != null)
+            {
+                projectileBlueprint.GetComponent<Projectile>().InitializeFields(damage, enemy.transform.position);
+                var rotationTarget = Quaternion.LookRotation(enemy.transform.position - transform.position);
+                var initialRotation = Quaternion.Slerp(transform.rotation, rotationTarget, 2f);
+                var a = Instantiate(projectileBlueprint, projectileSpawn.position, initialRotation);
+                a.GetComponent<Projectile>().InitializeFields(damage, enemy.transform.position);
+            }
         }
     }
 }

@@ -40,6 +40,7 @@ public class EnemyController : MonoBehaviour
                 break;
             case Actions.IsTakingDamage:
                 animator.SetBool("IsTakingDamage", true);
+                StartCoroutine(TakeDamage());
                 break;
             case Actions.IsAttacking:
                 animator.SetBool("IsAttacking", true);
@@ -51,6 +52,7 @@ public class EnemyController : MonoBehaviour
                 animator.SetBool("IsDying", true);
                 animator.SetBool("IsMoving", false);
                 pathFinished = true;
+                StartCoroutine(Die());
                 //Debug.Log(animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 2f);
                 // Dying animation finished playing. Bye.
                 //if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0))
@@ -64,12 +66,15 @@ public class EnemyController : MonoBehaviour
             if (Vector3.Distance(transform.position, targetPointer) < targetOffset)
             {
                 // Set new target
-                if (targetIndex < targetNodes.Length - 1)
-                    targetPointer = targetNodes[++targetIndex].position;
-                else
+                if (targetNodes != null)
                 {
-                    state = Actions.IsIdle;
-                    pathFinished = true;
+                    if (targetIndex < targetNodes.Length - 1)
+                        targetPointer = targetNodes[++targetIndex].position;
+                    else
+                    {
+                        state = Actions.IsIdle;
+                        pathFinished = true;
+                    }
                 }
             }
 
@@ -117,5 +122,17 @@ public class EnemyController : MonoBehaviour
     {
         float fill = (float)currentHealth / fullHealth;
         healthBar.fillAmount = fill;
+    }
+
+    IEnumerator TakeDamage()
+    {
+        yield return new WaitForSeconds(5f);
+        animator.SetBool("IsTakingDamage", false);
+    }
+
+    IEnumerator Die()
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
     }
 }

@@ -18,7 +18,6 @@ public class SpawnPoint : MonoBehaviour
         if (waves == 0)
             CancelInvoke("SpawnEnemies");
 
-        Debug.Log("Spawning wave: " + waves);
         GameObject enemyRef = Instantiate(enemy, transform.position, Quaternion.identity);
         enemyRef.GetComponent<EnemyController>().SetPath(path);
     }
