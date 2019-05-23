@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum Actions
 {
@@ -15,8 +16,11 @@ public class EnemyController : MonoBehaviour
 {
     private Animator animator;
 
+    public Image healthBar;
+
     public float speed;
-    public int health;
+    public int fullHealth;
+    public int currentHealth;
 
     public Actions state = Actions.IsIdle;
     private Transform[] targetNodes;
@@ -45,7 +49,8 @@ public class EnemyController : MonoBehaviour
                 break;
             case Actions.IsDying:
                 animator.SetBool("IsDying", true);
-
+                animator.SetBool("IsMoving", false);
+                pathFinished = true;
                 //Debug.Log(animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 2f);
                 // Dying animation finished playing. Bye.
                 //if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0))
@@ -89,5 +94,28 @@ public class EnemyController : MonoBehaviour
         else targetPointer = transform.position;
 
         state = Actions.IsWalking;
+    }
+
+    public void TakeDamage(int amount)
+    {
+        currentHealth -= amount;
+
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+            healthBar.fillAmount = 0;
+            state = Actions.IsDying;
+        }
+        else
+        {
+            UpdateHealth();
+            state = Actions.IsTakingDamage;
+        }
+    }
+
+    void UpdateHealth()
+    {
+        float fill = (float)currentHealth / fullHealth;
+        healthBar.fillAmount = fill;
     }
 }

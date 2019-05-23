@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2990810549559944782}
   - component: {fileID: 8009025587581783272}
   - component: {fileID: 6909402652546634796}
+  - component: {fileID: 2076283975657927164}
   m_Layer: 9
   m_Name: ArcherTower
   m_TagString: Untagged
@@ -128,12 +129,31 @@ MonoBehaviour:
     m_Bits: 4608
   invalidLocation: {fileID: 2100000, guid: 0adb9821c6138cd4486ff0d492661ffd, type: 2}
   buildingName: Archer tower
+  viewRange: {fileID: 0}
   buildingId: BUILDING_TOWER_ARCHER
   stoneCost: 10
   woodCost: 10
   ironCost: 10
   onValidPosition: 0
   isBuilt: 0
+--- !u!114 &2076283975657927164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6909402652546601601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b06d476f05ae67a48aba1927d96dbf59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 10
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 32768
+  shotCooldown: 0.5
+  damage: 30
 --- !u!1001 &6721112960850954518
 PrefabInstance:
   m_ObjectHideFlags: 0
