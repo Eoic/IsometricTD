@@ -7,20 +7,12 @@ public class Projectile : MonoBehaviour
     public LayerMask EnemyLayer;
     public Vector3 Target { get; set; }
 
-    private bool fieldsSet = false;
-
-    private Rigidbody rigidbody;
-
-    private void Start()
-    {
-        rigidbody = GetComponent<Rigidbody>();
-    }
+    bool IsTravelDone = false;
 
     public void InitializeFields(int damage, Vector3 target)
     {
         Damage = damage;
-        Target = target + new Vector3(0, 1f, 0); // Fix to not aim for the toes
-        fieldsSet = true;
+        Target = target + new Vector3(0, 1f, 0);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -35,7 +27,7 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
-        if (fieldsSet)
+        if (!IsTravelDone)
         {
             // Missed. Dispose projectile.
             if (Vector3.Distance(transform.position, Target) > 10f)
@@ -48,10 +40,13 @@ public class Projectile : MonoBehaviour
             {
                 var rotationTarget = Quaternion.LookRotation(Target - transform.position);
                 transform.rotation = Quaternion.Slerp(transform.rotation, rotationTarget, step);
+                transform.position = Vector3.MoveTowards(transform.position, Target, step);
             }
-
-            transform.position = Vector3.MoveTowards(transform.position, Target, step);
+            else
+            {
+                GetComponent<Rigidbody>().useGravity = true;
+                IsTravelDone = true;
+            }
         }
-
     }
 }

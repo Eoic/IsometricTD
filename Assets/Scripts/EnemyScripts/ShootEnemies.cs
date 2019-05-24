@@ -10,7 +10,7 @@ public class ShootEnemies : MonoBehaviour
     public LayerMask enemyLayer;
 
     // Should be in other class
-    public float shotCooldown = 5f;
+    public float shotCooldown;
     public int damage;
 
     private Collider[] collisions;
@@ -30,10 +30,7 @@ public class ShootEnemies : MonoBehaviour
 
             // Create new projectile
             if (projectileBlueprint != null)
-            {
-                projectileBlueprint.GetComponent<Projectile>().InitializeFields(damage, enemy.transform.position);
                 Instantiate(projectileBlueprint, projectileSpawn.position, Quaternion.identity).GetComponent<Projectile>().InitializeFields(damage, enemy.transform.position);
-            }
         }
     }
 }
