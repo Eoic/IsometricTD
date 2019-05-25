@@ -99,6 +99,7 @@ public class UIEvents : MonoBehaviour
     {
         if (building.IsBuilt)
         {
+            GameAudioManager.instance.Play("BuildingClick");
             // Disable overlaping elements first
             resourceBuildingsPanel.gameObject.SetActive(false);
             towersPanel.gameObject.SetActive(false);

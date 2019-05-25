@@ -77,7 +77,7 @@ public class Building : MonoBehaviour, IPointerClickHandler
         if (viewRange != null)
             viewRange.gameObject.SetActive(false);
 
-        //AudioManager.instance.Play("Building01");
+        GameAudioManager.instance.Play("Build");
     }
 
     void ShowParticleEffects()
@@ -90,12 +90,11 @@ public class Building : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        /*
-        if(eventData.button == PointerEventData.InputButton.Left)
-            AudioManager.instance.Play("PointerClick");
-        */
-        // Invoke building options menu on click
-        UIEvents.Instance.DisplayBuildingOptions(this);
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            ToggleViewRange(true);
+            UIEvents.Instance.DisplayBuildingOptions(this);
+        }
     }
 
     public void ToggleViewRange(bool state)

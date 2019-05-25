@@ -1,0 +1,156 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1819430666771680006
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1819430666771680024}
+  - component: {fileID: 1819430666771680025}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1819430666771680024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819430666771680006}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1819430666771680025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819430666771680006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aa24201bed4f5e4c9495992da90c425, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Theme1
+    clip: {fileID: 8300000, guid: 11d250d072ea9f34bb9394f915af84cc, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    outputMixer: {fileID: 243789019759351850, guid: a72ac464e8ca36940b9cc69e0a81da31,
+      type: 2}
+    source: {fileID: 0}
+  - name: Theme2
+    clip: {fileID: 8300000, guid: 37034ea7d5e59564e80b1bda6067d2a4, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    outputMixer: {fileID: 243789019759351850, guid: a72ac464e8ca36940b9cc69e0a81da31,
+      type: 2}
+    source: {fileID: 0}
+  - name: Theme3
+    clip: {fileID: 8300000, guid: 848ce7d6e5d0e6a43beb825206493ef9, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    outputMixer: {fileID: 243789019759351850, guid: a72ac464e8ca36940b9cc69e0a81da31,
+      type: 2}
+    source: {fileID: 0}
+  - name: Theme4
+    clip: {fileID: 8300000, guid: 43d041b965536d843ab1d966544348f1, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    outputMixer: {fileID: 243789019759351850, guid: a72ac464e8ca36940b9cc69e0a81da31,
+      type: 2}
+    source: {fileID: 0}
+  - name: Theme5
+    clip: {fileID: 8300000, guid: 746cfa03c05baf84995d45c6ba8846b9, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    outputMixer: {fileID: 243789019759351850, guid: a72ac464e8ca36940b9cc69e0a81da31,
+      type: 2}
+    source: {fileID: 0}
+  - name: Building01
+    clip: {fileID: 8300000, guid: e9c8a51424cc9c94c87a92fcdd583082, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    outputMixer: {fileID: 0}
+    source: {fileID: 0}
+  - name: BuildingClick
+    clip: {fileID: 8300000, guid: 23e37f0a22a6c094f8fe832da825f650, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    outputMixer: {fileID: 0}
+    source: {fileID: 0}
+  - name: PointerClick
+    clip: {fileID: 8300000, guid: e1756d9d207b6e8469306278ec7cf428, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    outputMixer: {fileID: 0}
+    source: {fileID: 0}
+  - name: ButtonHover
+    clip: {fileID: 8300000, guid: a11fee0b3608efb48a3af198ad216b59, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    outputMixer: {fileID: 0}
+    source: {fileID: 0}
+  - name: ButtonClick
+    clip: {fileID: 8300000, guid: 8400b964a2adaa944b2131aa2114b489, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    outputMixer: {fileID: 0}
+    source: {fileID: 0}
+  - name: Theme6
+    clip: {fileID: 8300000, guid: d1ede73126af183458ee5a35d8f1052f, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    outputMixer: {fileID: 0}
+    source: {fileID: 0}
+  - name: Theme7
+    clip: {fileID: 8300000, guid: 143f8f2e91105b841b79dabeda99d803, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    outputMixer: {fileID: 0}
+    source: {fileID: 0}
+  - name: Theme8
+    clip: {fileID: 8300000, guid: efdd2d3f6ebf6c84c899efec7f921191, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    outputMixer: {fileID: 0}
+    source: {fileID: 0}
+  - name: Theme9
+    clip: {fileID: 8300000, guid: 65514640d27ee004caf1e31e3f918877, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    outputMixer: {fileID: 0}
+    source: {fileID: 0}
+  - name: Theme10
+    clip: {fileID: 8300000, guid: 4dce41860ec6adf4e87f1015ec5e2bc4, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    outputMixer: {fileID: 0}
+    source: {fileID: 0}
