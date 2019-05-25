@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 6909402652546634796}
   - component: {fileID: 2076283975657927164}
   - component: {fileID: 1506894680}
-  - component: {fileID: 1506894681}
   m_Layer: 9
   m_Name: ArcherTower
   m_TagString: Untagged
@@ -111,8 +110,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.6523385, y: 3.7156198, z: 6.304616}
-  m_Center: {x: -0.000009596348, y: -0.05851175, z: 3.1504226}
+  m_Size: {x: 3.6523385, y: 3.7156198, z: 6.385985}
+  m_Center: {x: -0.0000096263675, y: -0.05851181, z: 3.191107}
 --- !u!114 &6909402652546634796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,41 +137,8 @@ MonoBehaviour:
   ironCost: 10
   onValidPosition: 0
   isBuilt: 0
+  IsBlueprint: 0
 --- !u!114 &2076283975657927164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6909402652546601601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b06d476f05ae67a48aba1927d96dbf59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectileBlueprint: {fileID: 2814244646455506707, guid: 2e4fef74dd81bd94182be6162b320c3a,
-    type: 3}
-  projectileSpawn: {fileID: 0}
-  radius: 10
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 32768
-  shotCooldown: 0.5
-  damage: 30
---- !u!135 &1506894680
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6909402652546601601}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 10
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1506894681
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -193,6 +159,19 @@ MonoBehaviour:
     m_Bits: 32768
   shotCooldown: 1.5
   damage: 30
+--- !u!135 &1506894680
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6909402652546601601}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 10
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &6721112960850954518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -204,6 +183,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ViewRange
+      objectReference: {fileID: 0}
+    - target: {fileID: 1959971999803069596, guid: c438df2d45b810349af828f130b0feca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3551575562950021088, guid: c438df2d45b810349af828f130b0feca,
         type: 3}

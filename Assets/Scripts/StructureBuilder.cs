@@ -51,13 +51,16 @@ public class StructureBuilder : MonoBehaviour
             return;
         }
 
-        // Place building
-        Vector3 localScale = building.transform.localScale; 
-        position = new Vector3(Mathf.Round(position.x / localScale.x) / localScale.x, position.y, Mathf.Round(position.z / localScale.z) / localScale.z);
-        building.transform.position = position;
-        GameObject buildingReference = Instantiate(building, position, building.transform.rotation);
-        buildingReference.GetComponentInChildren<Building>().SetAsBuilt();
-        StatisticsManager.instance.RegisterStructureBuilt();
+        if (StatisticsManager.instance.StructuresBuilt < StatisticsManager.instance.StructuresAllowed)
+        {
+            // Place building
+            Vector3 localScale = building.transform.localScale;
+            position = new Vector3(Mathf.Round(position.x / localScale.x) / localScale.x, position.y, Mathf.Round(position.z / localScale.z) / localScale.z);
+            building.transform.position = position;
+            GameObject buildingReference = Instantiate(building, position, building.transform.rotation);
+            buildingReference.GetComponentInChildren<Building>().SetAsBuilt();
+            StatisticsManager.instance.RegisterStructureBuilt();
+        }
     }
     
     void Update()

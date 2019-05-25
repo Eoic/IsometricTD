@@ -17,8 +17,11 @@ public class StatisticsManager : MonoBehaviour
     public TextMeshProUGUI enemiesKilled;
     public TextMeshProUGUI structuresBuilt;
     public TextMeshProUGUI damageTaken;
+    public TextMeshProUGUI gameInfoStructuresBuilt;
+    public TextMeshProUGUI gameInfoStructuresAllowed;
 
     public int StructuresBuilt { get; private set; }
+    public int StructuresAllowed = 40;
     public int EnemiesKilled { get; private set; }
     public int WavesSurvived { get; private set; }
     public int EnemiesSpawned { get; private set; }
@@ -34,16 +37,19 @@ public class StatisticsManager : MonoBehaviour
     private void Start()
     {
         waveCount.text = "1";
+        gameInfoStructuresAllowed.text = StructuresAllowed.ToString();
+        gameInfoStructuresBuilt.text = StructuresBuilt.ToString();
     }
 
-    public void RegisterStructureBuilt() =>
+    public void RegisterStructureBuilt()
+    {
         StructuresBuilt++;
+        gameInfoStructuresBuilt.text = StructuresBuilt.ToString();
+    }
 
     public void RegisterEnemyKilled()
     {
         EnemiesKilled++;
-
-        Debug.Log(EnemiesKilled + " / " + EnemiesSpawned);
 
         // All enemies eliminated
         if (EnemiesSpawned == EnemiesKilled)

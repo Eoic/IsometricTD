@@ -29,6 +29,16 @@ public class ShowInfoOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExit
                 buildingInfoPanel.GetChild(3).GetComponent<TextMeshProUGUI>().text = building.IronCost.ToString();
 
                 // TODO: If tower script was found, additionally display tower damage per seconds
+                var tower = building.GetComponentInChildren<ShootEnemies>();
+
+                // 9, 10
+                if (tower != null)
+                {
+                    ToggleAdditionalInfo(true);
+                    buildingInfoPanel.GetChild(9).GetComponent<TextMeshProUGUI>().text = tower.damage.ToString();
+                    buildingInfoPanel.GetChild(10).GetComponent<TextMeshProUGUI>().text = tower.radius.ToString();
+                }
+                else ToggleAdditionalInfo(false);
             }
         }
     }
@@ -36,5 +46,13 @@ public class ShowInfoOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public void OnPointerExit(PointerEventData eventData)
     {
         buildingInfoPanel.gameObject.SetActive(false);
+    }
+
+    public void ToggleAdditionalInfo(bool state)
+    {
+        buildingInfoPanel.GetChild(7).gameObject.SetActive(state);
+        buildingInfoPanel.GetChild(8).gameObject.SetActive(state);
+        buildingInfoPanel.GetChild(9).gameObject.SetActive(state);
+        buildingInfoPanel.GetChild(10).gameObject.SetActive(state);
     }
 }

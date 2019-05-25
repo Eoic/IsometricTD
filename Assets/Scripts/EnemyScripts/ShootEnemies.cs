@@ -5,6 +5,7 @@ public class ShootEnemies : MonoBehaviour
 {
     public GameObject projectileBlueprint;
     public Transform projectileSpawn;
+    //public GameObject weapon;           // Cannon turret.
 
     public float radius;
     public LayerMask enemyLayer;

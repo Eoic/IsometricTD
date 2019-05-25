@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class UIEvents : MonoBehaviour
 {
@@ -17,18 +18,19 @@ public class UIEvents : MonoBehaviour
         public const string TowerBuildings = "TOWERS";
     }
 
-    void Awake()    
+    void Awake()
     {
         if (Instance == null)
             Instance = this;
     }
-    
+
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.B))
         {
             // Disable build mode.
             StructureBuilder.Instance.DisableBuildMode();
+            buildingInfo.gameObject.SetActive(false);
 
             // Close opened panel and close buildings category.
             if (buildingsCategory.gameObject.activeInHierarchy)
@@ -57,11 +59,13 @@ public class UIEvents : MonoBehaviour
             }
         }
     }
-    
+
     // Opens menu panel of specified type
     public void OpenBuildingsPanel(string type)
     {
-        switch(type)
+        buildingInfo.gameObject.SetActive(false);
+
+        switch (type)
         {
             case BuildingTypes.ResourceBuildings:
                 TogglePanel(towersPanel, false);
@@ -93,19 +97,25 @@ public class UIEvents : MonoBehaviour
 
     public void DisplayBuildingOptions(Building building)
     {
-        /*
-        buildingInfo.gameObject.SetActive(true);
-        var destroyButton = buildingInfo.GetChild(1).GetComponent<Button>();
-
-        if(destroyButton != null && building != null)
+        if (building.IsBuilt)
         {
-            destroyButton.onClick.RemoveAllListeners();
-            destroyButton.onClick.AddListener(() => {
-                var animator = building.GetComponent<Animator>();
-                animator.Play("TowerDemolition");
-                Destroy(building);
-            });
+            // Disable overlaping elements first
+            resourceBuildingsPanel.gameObject.SetActive(false);
+            towersPanel.gameObject.SetActive(false);
+            buildingsCategory.gameObject.SetActive(false);
+
+            buildingInfo.gameObject.SetActive(true);
+            var destroyButton = buildingInfo.GetChild(1).GetComponent<Button>();
+
+            if (destroyButton != null && building != null)
+            {
+                destroyButton.onClick.RemoveAllListeners();
+                destroyButton.onClick.AddListener(() =>
+                {
+                    var animator = building.GetComponent<Animator>();
+                    Destroy(building);
+                });
+            }
         }
-        */
     }
 }

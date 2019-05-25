@@ -18,6 +18,8 @@ public class Building : MonoBehaviour, IPointerClickHandler
     [SerializeField] private int ironCost;
     [SerializeField] private bool onValidPosition;
     [SerializeField] private bool isBuilt = false;
+
+    public bool IsBlueprint = true;
     
     public string BuildingId { get => buildingId; set => buildingId = value; }
     public string Name { get => buildingName; }
@@ -25,6 +27,8 @@ public class Building : MonoBehaviour, IPointerClickHandler
     public int WoodCost { get => woodCost; }
     public int IronCost { get => ironCost; }
     public bool OnValidPosition { get => onValidPosition; }
+
+    public bool IsBuilt { get => isBuilt; }
 
     private void Awake()
     {
@@ -34,9 +38,6 @@ public class Building : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
-        if (viewRange != null)
-            viewRange.transform.localScale = new Vector3(viewRangeSize, viewRangeSize, 1);
-        
         onValidPosition = true;
     }
 
@@ -95,5 +96,11 @@ public class Building : MonoBehaviour, IPointerClickHandler
         */
         // Invoke building options menu on click
         UIEvents.Instance.DisplayBuildingOptions(this);
+    }
+
+    public void ToggleViewRange(bool state)
+    {
+        if (viewRange != null)
+            viewRange.gameObject.SetActive(state);
     }
 }

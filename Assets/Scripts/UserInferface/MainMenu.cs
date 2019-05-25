@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,7 +7,11 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject menuScreen;
     public GameObject loadingScreen;
+    public GameObject options;
     public Image loadingProgress;
+
+    public Slider musicSlider;
+    public Slider soundsSlider;
 
     public void NewGame()
     {
@@ -22,11 +25,19 @@ public class MainMenu : MonoBehaviour
 
     public void Options()
     {
+        menuScreen.SetActive(false);
+        options.SetActive(true);
 
+        if (PlayerPrefs.HasKey("MusicEffects"))
+            musicSlider.value = PlayerPrefs.GetFloat("MusicEffects");
+
+        if (PlayerPrefs.HasKey("SoundEffects"))
+            soundsSlider.value = PlayerPrefs.GetFloat("SoundEffects");
     }
 
     public void Quit()
     {
+        PlayerPrefs.Save();
         Application.Quit();
     }
 
@@ -34,6 +45,7 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator LoadNewGame()
     {
+        PlayerPrefs.Save();
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("GameLevel2");
         menuScreen.SetActive(false);
         loadingScreen.SetActive(true);
@@ -44,5 +56,11 @@ public class MainMenu : MonoBehaviour
             loadingProgress.fillAmount = progress;
             yield return null;
         }
+    }
+
+    public void BackToMenu()
+    {
+        options.SetActive(false);
+        menuScreen.SetActive(true);
     }
 }

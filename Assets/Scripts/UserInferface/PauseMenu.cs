@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
@@ -7,6 +8,10 @@ public class PauseMenu : MonoBehaviour
     public RectTransform pauseOverlay;
     public RectTransform pauseMenu;
     public RectTransform optionsMenu;
+
+    // Options sliders
+    public Slider musicSlider;
+    public Slider soundsSlider;
 
     void Update()
     {
@@ -37,8 +42,15 @@ public class PauseMenu : MonoBehaviour
 
     public void Options()
     {
+        if (PlayerPrefs.HasKey("MusicEffects"))
+            musicSlider.value = PlayerPrefs.GetFloat("MusicEffects");
+
+        if (PlayerPrefs.HasKey("SoundEffects"))
+            soundsSlider.value = PlayerPrefs.GetFloat("SoundEffects");
+
         optionsMenu.gameObject.SetActive(true);
         pauseMenu.gameObject.SetActive(false);
+
     }
 
     public void Controls()
@@ -49,8 +61,11 @@ public class PauseMenu : MonoBehaviour
     public void BackMainMenu() =>
         SceneManager.LoadScene(0);
 
-    public void ExitGame() =>
+    public void ExitGame()
+    {
+        PlayerPrefs.Save();
         Application.Quit();
+    }
 
     #endregion
 
