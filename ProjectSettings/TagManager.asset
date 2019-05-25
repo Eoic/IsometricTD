@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - Target
   layers:
   - Default
   - TransparentFX
@@ -23,7 +22,7 @@ TagManager:
   - Tree
   - Animal
   - Enemies
-  - Targets
+  - Projectiles
   - 
   - 
   - 

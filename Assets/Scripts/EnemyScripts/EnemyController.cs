@@ -49,13 +49,9 @@ public class EnemyController : MonoBehaviour
                 break;
             case Actions.IsDying:
                 animator.SetBool("IsDying", true);
-                animator.SetBool("IsMoving", false);
+                animator.SetBool("IsWalking", false);
                 pathFinished = true;
                 StartCoroutine(Die());
-                //Debug.Log(animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 2f);
-                // Dying animation finished playing. Bye.
-                //if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0))
-
                 break;
         }
 
@@ -79,9 +75,14 @@ public class EnemyController : MonoBehaviour
 
             float step = speed * Time.deltaTime;
             var positionTarget = new Vector3(targetPointer.x, transform.position.y, targetPointer.z);
-            var rotationTarget = Quaternion.LookRotation(positionTarget - transform.position);
+
+            if (!(positionTarget - transform.position).Equals(Vector3.zero))
+            {
+                Quaternion rotationTarget = Quaternion.LookRotation(positionTarget - transform.position);
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotationTarget, step);
+            }
+
             transform.position = Vector3.MoveTowards(transform.position, positionTarget, step);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotationTarget, step);
         }
     }
 
@@ -125,13 +126,13 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator TakeDamage()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(0.8f);
         animator.SetBool("IsTakingDamage", false);
     }
 
     IEnumerator Die()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.5f);
         Destroy(gameObject);
     }
 }

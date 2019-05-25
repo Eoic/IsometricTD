@@ -18,6 +18,10 @@ public class PauseMenu : MonoBehaviour
         if (optionsMenu.gameObject.activeInHierarchy)
             optionsMenu.gameObject.SetActive(false);
 
+        if (state)
+            Time.timeScale = 0;
+        else Time.timeScale = 1;
+
         pauseOverlay.gameObject.SetActive(state);
         pauseMenu.gameObject.SetActive(state);
     }

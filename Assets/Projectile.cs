@@ -2,18 +2,17 @@
 
 public class Projectile : MonoBehaviour
 {
-    public float Speed = 1f;
+    private float Speed = 10f;
     public int Damage { get; set; } = 0;
-    public LayerMask EnemyLayer { get; set; }
+    public LayerMask EnemyLayer;
     public Vector3 Target { get; set; }
 
-    private bool fieldsSet = false;
+    bool IsTravelDone = false;
 
     public void InitializeFields(int damage, Vector3 target)
     {
         Damage = damage;
-        Target = new Vector3(1.5f, 0.5f, 0f);
-        fieldsSet = true;
+        Target = target + new Vector3(0, 1f, 0);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -21,7 +20,6 @@ public class Projectile : MonoBehaviour
         // If collided with enemy, apply damage and destroy itself.
         if (((1 << collision.gameObject.layer) & EnemyLayer) != 0)
         {
-            Debug.Log("Enemy hit.");
             collision.gameObject.GetComponent<EnemyController>().TakeDamage(Damage);
             Destroy(gameObject);
         }
@@ -29,21 +27,26 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
-        if (fieldsSet)
+        if (!IsTravelDone)
         {
             // Missed. Dispose projectile.
-            if (Vector3.Distance(transform.position, Target) > 700f)
-            {
-                Debug.Log(Vector3.Distance(transform.position, Target));
+            if (Vector3.Distance(transform.position, Target) > 10f)
                 Destroy(gameObject);
-            }
 
-            Debug.Log(Target);
             // Update position
             var step = Speed * Time.deltaTime;
-            var rotationTarget = Quaternion.LookRotation(Target - transform.position);
-            transform.position = Vector3.MoveTowards(transform.position, Target, step);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotationTarget, step);
+
+            if (!(Target - transform.position).Equals(Vector3.zero))
+            {
+                var rotationTarget = Quaternion.LookRotation(Target - transform.position);
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotationTarget, step);
+                transform.position = Vector3.MoveTowards(transform.position, Target, step);
+            }
+            else
+            {
+                GetComponent<Rigidbody>().useGravity = true;
+                IsTravelDone = true;
+            }
         }
     }
 }

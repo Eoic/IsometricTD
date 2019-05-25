@@ -191,7 +191,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 32768
-  shotCooldown: 0.5
+  shotCooldown: 1.5
   damage: 30
 --- !u!1001 &6721112960850954518
 PrefabInstance:
