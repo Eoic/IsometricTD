@@ -942,7 +942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1313744183}
-  speed: 2
+  speed: 1.6
   fullHealth: 100
   currentHealth: 100
   state: 0
@@ -957,8 +957,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1383336, y: 0.17273393, z: 0.10426336}
-  m_Center: {x: 0.001288569, y: 0.07515905, z: 0.022245184}
+  m_Size: {x: 0.1383336, y: 0.15057154, z: 0.10426336}
+  m_Center: {x: 0.001288569, y: 0.08624025, z: 0.022245182}
 --- !u!1 &3945564631134597189
 GameObject:
   m_ObjectHideFlags: 0

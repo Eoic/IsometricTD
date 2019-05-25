@@ -57,6 +57,7 @@ public class StructureBuilder : MonoBehaviour
         building.transform.position = position;
         GameObject buildingReference = Instantiate(building, position, building.transform.rotation);
         buildingReference.GetComponentInChildren<Building>().SetAsBuilt();
+        StatisticsManager.instance.RegisterStructureBuilt();
     }
     
     void Update()

@@ -39,7 +39,7 @@ public class EnemyController : MonoBehaviour
                 animator.SetBool("IsWalking", false);
                 break;
             case Actions.IsTakingDamage:
-                animator.SetBool("IsTakingDamage", true);
+                //animator.SetBool("IsTakingDamage", true);
                 StartCoroutine(TakeDamage());
                 break;
             case Actions.IsAttacking:
@@ -49,10 +49,14 @@ public class EnemyController : MonoBehaviour
                 animator.SetBool("IsWalking", true);
                 break;
             case Actions.IsDying:
-                animator.SetBool("IsDying", true);
-                animator.SetBool("IsWalking", false);
-                pathFinished = true;
-                StartCoroutine(Die());
+                if (!pathFinished)
+                {
+                    animator.SetBool("IsDying", true);
+                    animator.SetBool("IsWalking", false);
+                    pathFinished = true;
+                    StatisticsManager.instance.RegisterEnemyKilled();
+                    StartCoroutine(Die());
+                }
                 break;
         }
 
@@ -128,7 +132,7 @@ public class EnemyController : MonoBehaviour
     IEnumerator TakeDamage()
     {
         yield return new WaitForSeconds(0.8f);
-        animator.SetBool("IsTakingDamage", false);
+        //animator.SetBool("IsTakingDamage", false);
     }
 
     IEnumerator Die()
