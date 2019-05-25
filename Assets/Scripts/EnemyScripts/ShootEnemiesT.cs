@@ -7,27 +7,28 @@ public class ShootEnemiesT : MonoBehaviour
     public float secondsBetweenShots = 1;
     public GameObject bulletSpawn;
     private float secondCount = 0;
-    public float range = 1;
-
+    public float range = 7;
+    private Transform rangeCircle;
 
     private void Start()
     {
-        var rangeCircle = gameObject.transform.GetChild(0);
-        rangeCircle.localScale = new Vector3(range,range);
+        rangeCircle = gameObject.transform.GetChild(0);
+        rangeCircle.localScale = new Vector3(range / GetComponentInParent<Transform>().localScale.x , range / GetComponentInParent<Transform>().localScale.y);
     }
     void Update()
     {
         secondCount += Time.deltaTime;
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerStay(Collider collider)
     {
+        Collider[] others = Physics.OverlapSphere(this.transform.position, range+1);
+        Collider other = others[Random.Range(0,others.Length)];
         if (other.CompareTag("Enemy"))
         {
             //check if enough time passed between shots
             if (secondCount >= secondsBetweenShots)
             {
-                //TODO: use orc prefab instead of model
                 secondCount = 0;
                 //create bullet
                 GameObject bul = Instantiate(bullet, bulletSpawn.transform.position, bulletSpawn.transform.rotation);

@@ -1,31 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class EnemyControllerT : MonoBehaviour
+public class EnemyControllerT : MonoBehaviour, IDamageable
 {
     public GameObject[] targetPoints;
     public int speed;
     private int pointIterator = 0;
     private Rigidbody rb;
     private Animator animator;
-    public float maxHealth = 100;
-    public float currentHealth = 100;
+    public int maxHealth = 100;
+    public int currentHealth = 100;
     public GameObject healthBar;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         rb = this.GetComponent<Rigidbody>();
+        animator.Play("Run");
     }
-
+    
     // Update is called once per frame
     void Update()
     {
         if(pointIterator < targetPoints.Length)
             transform.LookAt(targetPoints[pointIterator].transform);
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        animator.Play("Run");
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);    
     }
 
     private void OnTriggerEnter(Collider other)
@@ -36,10 +34,18 @@ public class EnemyControllerT : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        healthBar.transform.localScale = new Vector3(currentHealth/maxHealth, 0, 0);
+        if (currentHealth < 0) currentHealth = 0;
+        healthBar.transform.localScale = new Vector3((float)currentHealth/(float)maxHealth, 1, 1);
         Debug.Log("DAMAGE TAKEN");
+        if (currentHealth <= 0)
+        {
+            animator.SetTrigger("Die");
+            speed = 0;
+            Destroy(this.gameObject, 2);
+        }
     }
+
 }

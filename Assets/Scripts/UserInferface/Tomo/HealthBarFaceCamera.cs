@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class HealthBarFaceCamera : MonoBehaviour
 {
-    public GameObject gameCamera;
+    //public GameObject gameCamera;
 
     void Update()
     {
-        transform.LookAt(gameCamera.transform);
+        //transform.LookAt(gameCamera.transform);
     }
 }
