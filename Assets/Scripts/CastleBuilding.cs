@@ -38,10 +38,13 @@ public class CastleBuilding : MonoBehaviour
 
         if (enemyRef != null)
         {
-            int damageToCastle = enemyRef.GetComponent<EnemyController>().currentHealth;
-            TakeDamage(damageToCastle);
-            Destroy(enemyRef);
-            StatisticsManager.instance.RegisterEnemyKilled();
+            if (enemyRef.GetComponent<EnemyController>() != null)
+            {
+                int damageToCastle = enemyRef.GetComponent<EnemyController>().currentHealth;
+                TakeDamage(damageToCastle);
+                Destroy(enemyRef);
+                StatisticsManager.instance.RegisterEnemyKilled();
+            }
         }
     }
 }

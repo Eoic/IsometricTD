@@ -9,14 +9,14 @@ public class GameAudioManager : MonoBehaviour
 
     private List<string> availableTracks;
     private List<float> tracksLength;
-    private int trackPointer = 0;
+    private int trackPointer = 1;
 
     void Awake()
     {
         if (instance == null)
             instance = this;
 
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         foreach (var sound in sounds)
         {
@@ -74,6 +74,10 @@ public class GameAudioManager : MonoBehaviour
 
     IEnumerator PlayBackgroundMusic()
     {
+        // Played all available tracks. Start again.
+        if (trackPointer == availableTracks.Count)
+            trackPointer = 0;
+
         Play(availableTracks[trackPointer]);
         yield return new WaitForSeconds(tracksLength[trackPointer]);
         trackPointer++;

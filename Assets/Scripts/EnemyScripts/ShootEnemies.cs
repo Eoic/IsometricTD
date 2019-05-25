@@ -15,9 +15,13 @@ public class ShootEnemies : MonoBehaviour
     public int damage;
 
     private Collider[] collisions;
+    private AudioSource audioSource;
 
-    private void Start() =>
+    private void Start()
+    {
         InvokeRepeating("Attack", 2f, shotCooldown);
+        audioSource = gameObject.GetComponent<AudioSource>();
+    }
 
     public void Attack()
     {
@@ -31,7 +35,10 @@ public class ShootEnemies : MonoBehaviour
 
             // Create new projectile
             if (projectileBlueprint != null)
+            {
+                audioSource.Play();
                 Instantiate(projectileBlueprint, projectileSpawn.position, Quaternion.identity).GetComponent<Projectile>().InitializeFields(damage, enemy.transform.position);
+            }
         }
     }
 }

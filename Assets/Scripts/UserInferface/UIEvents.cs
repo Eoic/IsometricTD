@@ -10,7 +10,9 @@ public class UIEvents : MonoBehaviour
     public RectTransform towersPanel;
     public RectTransform buildingsCategory;
     public RectTransform buildingInfo;
+
     private RectTransform referenceToOpened;
+    private Building selectedBuilding = null;
 
     private static class BuildingTypes
     {
@@ -31,6 +33,9 @@ public class UIEvents : MonoBehaviour
             // Disable build mode.
             StructureBuilder.Instance.DisableBuildMode();
             buildingInfo.gameObject.SetActive(false);
+
+            if (selectedBuilding != null)
+                selectedBuilding.ToggleViewRange(false);
 
             // Close opened panel and close buildings category.
             if (buildingsCategory.gameObject.activeInHierarchy)
@@ -99,7 +104,12 @@ public class UIEvents : MonoBehaviour
     {
         if (building.IsBuilt)
         {
+            if (selectedBuilding != null)
+                selectedBuilding.ToggleViewRange(false);
+
             GameAudioManager.instance.Play("BuildingClick");
+            selectedBuilding = building;
+
             // Disable overlaping elements first
             resourceBuildingsPanel.gameObject.SetActive(false);
             towersPanel.gameObject.SetActive(false);
@@ -118,5 +128,15 @@ public class UIEvents : MonoBehaviour
                 });
             }
         }
+    }
+
+    public void Deselect()
+    {
+        if (selectedBuilding != null)
+        {
+            selectedBuilding.ToggleViewRange(false);
+            buildingInfo.gameObject.SetActive(false);
+            selectedBuilding = null;
+        }        
     }
 }
