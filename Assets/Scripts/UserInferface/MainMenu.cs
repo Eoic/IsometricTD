@@ -6,21 +6,16 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     public GameObject menuScreen;
-    public GameObject loadingScreen;
+    public GameObject levelsScreen;
     public GameObject options;
-    public Image loadingProgress;
 
     public Slider musicSlider;
     public Slider soundsSlider;
 
-    public void NewGame()
-    {
-        StartCoroutine(LoadNewGame());
-    }
-
     public void SelectLevel()
     {
-
+        menuScreen.SetActive(false);
+        levelsScreen.SetActive(true);
     }
 
     public void Options()
@@ -41,8 +36,7 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    // ---
-
+    /*
     IEnumerator LoadNewGame()
     {
         PlayerPrefs.Save();
@@ -57,10 +51,12 @@ public class MainMenu : MonoBehaviour
             yield return null;
         }
     }
+    */
 
     public void BackToMenu()
     {
         options.SetActive(false);
+        levelsScreen.SetActive(false);
         menuScreen.SetActive(true);
     }
 }

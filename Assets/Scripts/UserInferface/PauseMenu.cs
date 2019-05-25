@@ -76,6 +76,6 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.gameObject.SetActive(true);
         optionsMenu.gameObject.SetActive(false);
     }
-
+    
     #endregion
 }
