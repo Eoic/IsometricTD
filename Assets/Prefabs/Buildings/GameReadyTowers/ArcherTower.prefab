@@ -129,15 +129,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1506894681, guid: da616cb5b9fddd74cad7d4232da99c7e, type: 3}
+      propertyPath: projectileSpawn
+      value: 
+      objectReference: {fileID: 1820813460}
     - target: {fileID: 2076283975657927164, guid: da616cb5b9fddd74cad7d4232da99c7e,
         type: 3}
       propertyPath: projectileSpawn
       value: 
       objectReference: {fileID: 1820813460}
-    - target: {fileID: 1506894681, guid: da616cb5b9fddd74cad7d4232da99c7e, type: 3}
-      propertyPath: projectileSpawn
-      value: 
-      objectReference: {fileID: 1820813460}
+    - target: {fileID: 6909402652546634796, guid: da616cb5b9fddd74cad7d4232da99c7e,
+        type: 3}
+      propertyPath: viewRangeSize
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da616cb5b9fddd74cad7d4232da99c7e, type: 3}
 --- !u!4 &6148600419748925521 stripped

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FoxController : MonoBehaviour
 {
@@ -27,16 +25,16 @@ public class FoxController : MonoBehaviour
     private void Update()
     {
         Movement();
-        if (Input.GetKey(KeyCode.T))
-        {
-            move = true;
-        }
-        if (Input.GetKey(KeyCode.Y))
-        {
-            move = false;
-            animator.SetTrigger("Stop");
-            animator.ResetTrigger(walkHash);
-        }
+        //if (Input.GetKey(KeyCode.T))
+        //{
+        //    move = true;
+        //}
+        //if (Input.GetKey(KeyCode.Y))
+        //{
+        //    move = false;
+        //    animator.SetTrigger("Stop");
+        //    animator.ResetTrigger(walkHash);
+        //}
     }
 
 
@@ -51,16 +49,16 @@ public class FoxController : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (!turnAround)
-            if (collision.gameObject.layer != LayerMask.NameToLayer("Ground"))
-            {
-                Debug.Log("collision");
-                move = false;
-                turnAround = true;
-                animator.speed = 0;
-            }
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (!turnAround)
+    //        if (collision.gameObject.layer != LayerMask.NameToLayer("Ground"))
+    //        {
+    //            Debug.Log("fox collision");
+    //            move = false;
+    //            turnAround = true;
+    //            animator.speed = 0;
+    //        }
+    //}
 
 }
