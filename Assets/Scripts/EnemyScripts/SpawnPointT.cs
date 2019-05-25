@@ -2,18 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnPointT : MonoBehaviour
+public class SpawnPointT : MonoBehaviour, ISpawnPoint
 {
-
+    public GameObject[] targets;
     public GameObject enemy;
     void Start()
     {
-        InvokeRepeating("SpawnEnemy", 1, 1);
+        //InvokeRepeating("SpawnEnemy", 1, 1);
+        Invoke("SpawnEnemy", 1);
     }
 
-  
-    void SpawnEnemy()
+
+    void ISpawnPoint.SpawnEnemy()
     {
-        Instantiate(enemy, transform.position, Quaternion.identity);
+        var enemyObj = Instantiate(enemy, transform.position, Quaternion.identity);
+        var enm = enemyObj.GetComponent<EnemyControllerT>();
+        enm.targetPoints = targets;
     }
+
 }

@@ -4,7 +4,7 @@ public class ProjectileT : MonoBehaviour
 {
     public GameObject target;
     public float speed = 100f;
-    public float damage = 40;
+    public int damage = 40;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +22,9 @@ public class ProjectileT : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            EnemyControllerT enemy = target.GetComponent<EnemyControllerT>();
+            IDamageable enemy = target.GetComponent<IDamageable>();
             enemy.TakeDamage(damage);
+            Destroy(this.gameObject);
         }
     }
 }
