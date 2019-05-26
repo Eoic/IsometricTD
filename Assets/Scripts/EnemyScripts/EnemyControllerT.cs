@@ -16,6 +16,13 @@ public class EnemyControllerT : MonoBehaviour, IDamageable
     private IDamageable castle;
     private float secondsBetweenAttacks = 1f;
     private float secondCounter = 0;
+    private bool isDead = false;
+    
+    [SerializeField]
+    private int pointCount = 100;
+    public int PointCount { get => pointCount; }
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,11 +77,16 @@ public class EnemyControllerT : MonoBehaviour, IDamageable
         if (currentHealth < 0) currentHealth = 0;
         healthBar.transform.localScale = new Vector3((float)currentHealth/(float)maxHealth, 1, 1);
         //Debug.Log("DAMAGE TAKEN");
-        if (currentHealth <= 0)
+
+        if (currentHealth <= 0) //DETH
         {
             animator.SetTrigger("Die");
             speed = 0;
             Destroy(this.gameObject, 2);
+            if (!isDead) {
+                StatisticsManager.instance.RegisterEnemyKilled();
+                isDead = true;
+            }
         }
     }
 

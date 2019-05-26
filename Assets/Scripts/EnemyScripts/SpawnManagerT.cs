@@ -1,13 +1,25 @@
 ﻿using UnityEngine;
 
+[System.Serializable]
+public class WaveT
+{
+    public int WaveTime;
+    public bool[] WhichSpawnsToUse;
+    public int[] EnemyCountPerSpawn;
+
+}
+
+
 public class SpawnManagerT : MonoBehaviour
 {
-    public float timeBetweenSpawns = 10; //seconds between spawn events
+    [SerializeField]
+    public WaveT[] waves;
+    //public float timeBetweenSpawns = 10; //seconds between spawn events
     public GameObject[] spawnPointObjects;
     private SpawnPointT[] spawnPoints;
-    public int[] enemiesPerSpawn;
+    //public int[] enemiesPerSpawn;
     public float secondsBetweenSpawns = 1; //seconds between every enemy spawned
-    private int currentSpawnIdx = 0;
+    private int currentWaveIdx = 0;
     private float seconds = 0;
     
 
@@ -19,35 +31,45 @@ public class SpawnManagerT : MonoBehaviour
         {
             spawnPoints[i] = spawnPointObjects[i].GetComponent<SpawnPointT>();
         }
-        SpawnEvent();
+
+        StatisticsManager.instance.RegisterMaxWaves(waves.Length);
+        //SpawnEvent();
     }
 
     // Update is called once per frame
     void Update()
     {
         seconds += Time.deltaTime;
-        if (seconds >= timeBetweenSpawns)
+        if (currentWaveIdx < waves.Length && seconds >= waves[currentWaveIdx].WaveTime)
         {
             seconds = 0;
+            if (currentWaveIdx == waves.Length - 1)
+                StatisticsManager.instance.RegisterWavesEnded();
+            
             SpawnEvent();
+
         }
     }
 
     private void SpawnEvent()
     {
         //if all spawns happened, skip
-        if (currentSpawnIdx >= enemiesPerSpawn.Length)
+        if (currentWaveIdx >= waves.Length) {
+            
             return;
+        }
         for (int i = 0; i < spawnPoints.Length; i++)
         {
+            if (!waves[currentWaveIdx].WhichSpawnsToUse[i])
+                continue; //skip if spawn point disabled
             float secondAcc = secondsBetweenSpawns;
-            for (int j = 0; j < enemiesPerSpawn[currentSpawnIdx]; j++)
+            for (int j = 0; j < waves[currentWaveIdx].EnemyCountPerSpawn[i]; j++)
             {
                 spawnPoints[i].Invoke("SpawnEnemy", secondAcc);
                 secondAcc += secondsBetweenSpawns;
             }
-
         }
-        currentSpawnIdx++;
+        currentWaveIdx++;
+        StatisticsManager.instance.RegisterWaveSurvived();
     }
 }

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using TMPro;
 using UnityEngine;
 
 public class CastleT : MonoBehaviour, IDamageable
@@ -7,7 +6,10 @@ public class CastleT : MonoBehaviour, IDamageable
     public int maxHealth = 1000;
     private int currentHealth;
     public GameObject healthBar;
-    public GameObject gameOverScreen;
+    public RectTransform gameOverScreen;
+    public TextMeshProUGUI wavesSurvived;
+    public TextMeshProUGUI enemiesKilled;
+    public TextMeshProUGUI structuresBuilt;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,13 +24,17 @@ public class CastleT : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage)
     {
+        damage = currentHealth > damage ? damage : 0;
+        StatisticsManager.instance.RegisterDamageTaken(damage);
         currentHealth -= damage;
-        if (currentHealth < 0) currentHealth = 0;
         healthBar.transform.localScale = new Vector3((float)currentHealth / (float)maxHealth, 1, 1);
-        //Debug.Log("DAMAGE TAKEN");
         if (currentHealth <= 0)
         {
-            gameOverScreen.SetActive(true);
+            Time.timeScale = 0;
+            wavesSurvived.text = (StatisticsManager.instance.WavesSurvived - 1).ToString();
+            enemiesKilled.text = StatisticsManager.instance.EnemiesKilled.ToString();
+            structuresBuilt.text = StatisticsManager.instance.StructuresBuilt.ToString();
+            gameOverScreen.gameObject.SetActive(true);
         }
     }
 }

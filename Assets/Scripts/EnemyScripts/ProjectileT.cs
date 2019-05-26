@@ -6,7 +6,11 @@ public class ProjectileT : MonoBehaviour
     public float speed = 100f;
     public int damage = 40;
 
-    // Update is called once per frame
+    private void Start()
+    {
+        //if bullet doesn't hit anything, destroy it after 3 seconds
+        Invoke("DestroyBullet", 3);
+    }
     void Update()
     {
         if(target != null)
@@ -22,5 +26,10 @@ public class ProjectileT : MonoBehaviour
             enemy.TakeDamage(damage);
             Destroy(this.gameObject);
         }
+    }
+
+    void DestroyBullet()
+    {
+        Destroy(this.gameObject);
     }
 }
