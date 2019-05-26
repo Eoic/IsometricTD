@@ -1,11 +1,6 @@
 ﻿using UnityEngine;
 using TMPro;
 
-class Statistics
-{
-
-}
-
 public class StatisticsManager : MonoBehaviour
 {
     public static StatisticsManager instance;

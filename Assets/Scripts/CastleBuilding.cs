@@ -15,11 +15,20 @@ public class CastleBuilding : MonoBehaviour
     private int currentHealth = 3000;
     private readonly int maxHealth = 3000;
 
+    public TextMeshProUGUI currentHealthText;
+    public TextMeshProUGUI maxHealthText;
+
+    private void Start()
+    {
+        currentHealthText.text = currentHealth.ToString();
+        maxHealthText.text = maxHealth.ToString();
+    }
+
     public void TakeDamage(int amount)
     {
         StatisticsManager.instance.RegisterDamageTaken(amount);
         currentHealth -= amount;
-
+        
         if (currentHealth <= 0)
         {
             currentHealth = 0;
@@ -30,6 +39,8 @@ public class CastleBuilding : MonoBehaviour
             gameOverScreen.gameObject.SetActive(true);
         }
         else healthBar.fillAmount = (float)currentHealth / maxHealth;
+
+        currentHealthText.text = currentHealth.ToString();
     }
 
     private void OnTriggerEnter(Collider collider)

@@ -74,12 +74,16 @@ public class GameAudioManager : MonoBehaviour
 
     IEnumerator PlayBackgroundMusic()
     {
-        // Played all available tracks. Start again.
-        if (trackPointer == availableTracks.Count)
-            trackPointer = 0;
+        while (true)
+        {
+            // Played all available tracks. Start again.
+            if (trackPointer == availableTracks.Count)
+                trackPointer = 0;
 
-        Play(availableTracks[trackPointer]);
-        yield return new WaitForSeconds(tracksLength[trackPointer]);
-        trackPointer++;
+            Play(availableTracks[trackPointer]);
+            Debug.Log("Playing: " + availableTracks[trackPointer]);
+            yield return new WaitForSeconds(tracksLength[trackPointer]);
+            trackPointer++;
+        }
     }
 }

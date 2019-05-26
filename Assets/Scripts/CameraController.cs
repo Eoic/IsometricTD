@@ -48,9 +48,9 @@ public class CameraController : MonoBehaviour
         zoomSize = Camera.main.orthographicSize;
         rotationTarget = transform.rotation;
 
-	if(cameraStartPoint != null)
-            transform.position = new Vector3(cameraStartPoint.position.x, 0, cameraStartPoint.position.z);     
-   }
+        if (cameraStartPoint != null)
+            transform.position = new Vector3(cameraStartPoint.position.x, 0, cameraStartPoint.position.z);
+    }
 
     void Update()
     {
@@ -74,12 +74,12 @@ public class CameraController : MonoBehaviour
 
     void RotateCamera()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(ControlsMapper.Instance.TurnCameraRight))
         {
             rotated = (rotated + 90) % 360;
             rotationTarget = Quaternion.Euler(0, rotated, 0);
         }
-        else if (Input.GetKeyDown(KeyCode.E))
+        else if (Input.GetKeyDown(ControlsMapper.Instance.TurnCameraLeft))
         {
             rotated = (rotated - 90) % 360;
             rotationTarget = Quaternion.Euler(0, rotated, 0);
