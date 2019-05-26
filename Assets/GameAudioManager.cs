@@ -83,6 +83,7 @@ public class GameAudioManager : MonoBehaviour
             Play(availableTracks[trackPointer]);
             Debug.Log("Playing: " + availableTracks[trackPointer]);
             yield return new WaitForSeconds(tracksLength[trackPointer]);
+            Stop(availableTracks[trackPointer]);
             trackPointer++;
         }
     }

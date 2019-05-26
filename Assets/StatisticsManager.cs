@@ -26,6 +26,8 @@ public class StatisticsManager : MonoBehaviour
     public int DamageTaken { get; private set; }
     public int MaxWaves { get; private set; }
 
+    public int GameTime { get; private set; }
+
     private void Awake()
     {
         if (instance == null)
