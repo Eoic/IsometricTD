@@ -16,7 +16,7 @@ public class ProjectileT : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") && target != null)
         {
             IDamageable enemy = target.GetComponent<IDamageable>();
             enemy.TakeDamage(damage);

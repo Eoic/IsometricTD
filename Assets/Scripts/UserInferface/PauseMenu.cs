@@ -8,10 +8,13 @@ public class PauseMenu : MonoBehaviour
     public RectTransform pauseOverlay;
     public RectTransform pauseMenu;
     public RectTransform optionsMenu;
+    public RectTransform controlsMenu;
 
     // Options sliders
     public Slider musicSlider;
     public Slider soundsSlider;
+
+    private float previousTimescale = 1f;
 
     void Update()
     {
@@ -24,9 +27,15 @@ public class PauseMenu : MonoBehaviour
         if (optionsMenu.gameObject.activeInHierarchy)
             optionsMenu.gameObject.SetActive(false);
 
+        if (controlsMenu.gameObject.activeInHierarchy)
+            controlsMenu.gameObject.SetActive(false);
+
         if (state)
+        {
+            previousTimescale = Time.timeScale;
             Time.timeScale = 0;
-        else Time.timeScale = 1;
+        }
+        else Time.timeScale = previousTimescale;
 
         pauseOverlay.gameObject.SetActive(state);
         pauseMenu.gameObject.SetActive(state);
@@ -50,12 +59,12 @@ public class PauseMenu : MonoBehaviour
 
         optionsMenu.gameObject.SetActive(true);
         pauseMenu.gameObject.SetActive(false);
-
     }
 
     public void Controls()
     {
-
+        pauseMenu.gameObject.SetActive(false);
+        controlsMenu.gameObject.SetActive(true);
     }
 
     public void BackMainMenu() =>
@@ -75,7 +84,8 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.gameObject.SetActive(true);
         optionsMenu.gameObject.SetActive(false);
+        controlsMenu.gameObject.SetActive(false);
     }
-    
+
     #endregion
 }

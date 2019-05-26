@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
     public GameObject menuScreen;
     public GameObject levelsScreen;
     public GameObject options;
+    public GameObject rankings;
 
     public Slider musicSlider;
     public Slider soundsSlider;
@@ -57,6 +58,13 @@ public class MainMenu : MonoBehaviour
     {
         options.SetActive(false);
         levelsScreen.SetActive(false);
+        rankings.SetActive(false);
         menuScreen.SetActive(true);
+    }
+
+    public void Rankings()
+    {
+        menuScreen.SetActive(false);
+        rankings.SetActive(true);
     }
 }

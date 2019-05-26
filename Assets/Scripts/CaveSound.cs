@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CaveSound : MonoBehaviour
 {
@@ -9,7 +7,7 @@ public class CaveSound : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("script started");
+        //Debug.Log("script started");
         source = GetComponent<AudioSource>();
         InvokeRepeating("Playmonstersound", 3f, 30f);
     }
