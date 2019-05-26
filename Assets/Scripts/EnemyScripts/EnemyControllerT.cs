@@ -6,7 +6,6 @@ public class EnemyControllerT : MonoBehaviour, IDamageable
     public GameObject[] targetPoints;
     public int speed;
     private int pointIterator = 0;
-    private Rigidbody rb;
     private Animator animator;
     public int maxHealth = 100;
     public int currentHealth = 100;
@@ -17,17 +16,16 @@ public class EnemyControllerT : MonoBehaviour, IDamageable
     private float secondsBetweenAttacks = 1f;
     private float secondCounter = 0;
     private bool isDead = false;
-    
-    [SerializeField]
-    private int pointCount = 100;
-    public int PointCount { get => pointCount; }
+    private AudioSource deathSound;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
+
         animator = GetComponent<Animator>();
-        rb = this.GetComponent<Rigidbody>();
+        deathSound = this.GetComponent<AudioSource>();
         animator.Play("Run");
     }
     
@@ -85,6 +83,7 @@ public class EnemyControllerT : MonoBehaviour, IDamageable
             Destroy(this.gameObject, 2);
             if (!isDead) {
                 StatisticsManager.instance.RegisterEnemyKilled();
+                deathSound.Play();
                 isDead = true;
             }
         }
