@@ -109,6 +109,8 @@ MonoBehaviour:
   damageTaken: {fileID: 0}
   gameInfoStructuresBuilt: {fileID: 0}
   gameInfoStructuresAllowed: {fileID: 0}
+  timePlayed: {fileID: 0}
+  playersName: {fileID: 0}
   StructuresAllowed: 40
 --- !u!114 &758668292
 MonoBehaviour:

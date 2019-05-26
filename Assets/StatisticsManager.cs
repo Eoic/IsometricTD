@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class StatisticsManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class StatisticsManager : MonoBehaviour
     public TextMeshProUGUI damageTaken;
     public TextMeshProUGUI gameInfoStructuresBuilt;
     public TextMeshProUGUI gameInfoStructuresAllowed;
+    public TextMeshProUGUI timePlayed;
+    public InputField playersName;
 
     public int StructuresBuilt { get; private set; }
     public int StructuresAllowed = 40;
@@ -54,6 +57,9 @@ public class StatisticsManager : MonoBehaviour
             enemiesKilled.text = EnemiesKilled.ToString();
             structuresBuilt.text = StructuresBuilt.ToString();
             damageTaken.text = DamageTaken.ToString();
+
+            // Player won the game. Set record.
+            timePlayed.text = Time.timeSinceLevelLoad.ToString();
             gameWinScreen.SetActive(true);
         }
     }
@@ -72,4 +78,14 @@ public class StatisticsManager : MonoBehaviour
 
     public void RegisterMaxWaves(int amount) =>
         MaxWaves = amount;
+
+    public RankingEntry CreateScore()
+    {
+        var playerName = playersName.text;
+
+        if (playerName.Trim().Length == 0)
+            playerName = "Player 1";
+
+        return new RankingEntry(playerName, Time.timeSinceLevelLoad, 1);
+    }
 }
