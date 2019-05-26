@@ -25,9 +25,8 @@ public class StatisticsManager : MonoBehaviour
     public int EnemiesSpawned { get; private set; }
     public int DamageTaken { get; private set; }
     public int MaxWaves { get; private set; }
-
-    public int GameTime { get; private set; }
-
+    public bool WavesEnded { get; private set; } = false;
+    
     private void Awake()
     {
         if (instance == null)
@@ -52,7 +51,7 @@ public class StatisticsManager : MonoBehaviour
         EnemiesKilled++;
 
         // All enemies eliminated
-        if (EnemiesSpawned == EnemiesKilled)
+        if (WavesEnded && EnemiesSpawned == EnemiesKilled)
         {
             Time.timeScale = 0;
             wavesSurvived.text = WavesSurvived.ToString();
@@ -80,6 +79,9 @@ public class StatisticsManager : MonoBehaviour
 
     public void RegisterMaxWaves(int amount) =>
         MaxWaves = amount;
+
+    public void RegisterWavesEnded() =>
+        WavesEnded = true;
 
     public RankingEntry CreateScore()
     {

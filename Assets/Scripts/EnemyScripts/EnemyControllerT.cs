@@ -6,7 +6,6 @@ public class EnemyControllerT : MonoBehaviour, IDamageable
     public GameObject[] targetPoints;
     public int speed;
     private int pointIterator = 0;
-    private Rigidbody rb;
     private Animator animator;
     public int maxHealth = 100;
     public int currentHealth = 100;
@@ -16,11 +15,17 @@ public class EnemyControllerT : MonoBehaviour, IDamageable
     private IDamageable castle;
     private float secondsBetweenAttacks = 1f;
     private float secondCounter = 0;
+    private bool isDead = false;
+    private AudioSource deathSound;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
+
         animator = GetComponent<Animator>();
-        rb = this.GetComponent<Rigidbody>();
+        deathSound = this.GetComponent<AudioSource>();
         animator.Play("Run");
     }
     
@@ -70,11 +75,17 @@ public class EnemyControllerT : MonoBehaviour, IDamageable
         if (currentHealth < 0) currentHealth = 0;
         healthBar.transform.localScale = new Vector3((float)currentHealth/(float)maxHealth, 1, 1);
         //Debug.Log("DAMAGE TAKEN");
-        if (currentHealth <= 0)
+
+        if (currentHealth <= 0) //DETH
         {
             animator.SetTrigger("Die");
             speed = 0;
             Destroy(this.gameObject, 2);
+            if (!isDead) {
+                StatisticsManager.instance.RegisterEnemyKilled();
+                deathSound.Play();
+                isDead = true;
+            }
         }
     }
 

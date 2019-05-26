@@ -20,6 +20,7 @@ public class SpawnPointT : MonoBehaviour, ISpawnPoint
         var enemyObj = Instantiate(enemy, transform.position, Quaternion.identity);
         var enm = enemyObj.GetComponent<EnemyControllerT>();
         enm.targetPoints = targetArray;
+        StatisticsManager.instance.RegisterEnemySpawned();
     }
 
 }

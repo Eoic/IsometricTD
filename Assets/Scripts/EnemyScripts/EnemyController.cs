@@ -11,7 +11,7 @@ public enum Actions
     IsDying = 4
 }
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour, IDamageable
 {
     private Animator animator;
 

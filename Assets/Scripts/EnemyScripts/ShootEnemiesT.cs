@@ -9,11 +9,13 @@ public class ShootEnemiesT : MonoBehaviour
     private float secondCount = 0;
     public float range = 7;
     private Transform rangeCircle;
+    private AudioSource shotSound;
 
     private void Start()
     {
         rangeCircle = gameObject.transform.GetChild(0);
         rangeCircle.localScale = new Vector3(range / GetComponentInParent<Transform>().localScale.x , range / GetComponentInParent<Transform>().localScale.y);
+        shotSound = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -32,6 +34,7 @@ public class ShootEnemiesT : MonoBehaviour
                 secondCount = 0;
                 //create bullet
                 GameObject bul = Instantiate(bullet, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
+                shotSound.Play();
                 ProjectileT bulletObj = bul.GetComponent<ProjectileT>();
                 bulletObj.speed = bulletSpeed;
                 //Debug.Log("BULLET SHOT");

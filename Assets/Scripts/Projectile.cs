@@ -20,7 +20,7 @@ public class Projectile : MonoBehaviour
         // If collided with enemy, apply damage and destroy itself.
         if (((1 << collision.gameObject.layer) & EnemyLayer) != 0)
         {
-            collision.gameObject.GetComponent<EnemyController>().TakeDamage(Damage);
+            collision.gameObject.GetComponent<IDamageable>().TakeDamage(Damage);
             Destroy(gameObject);
         }
     }
