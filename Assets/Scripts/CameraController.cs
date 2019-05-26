@@ -42,6 +42,10 @@ public class CameraController : MonoBehaviour
     public float limitLowerZ = -90;
     public float limitUpperZ = 400;
 
+    // Center of the map
+    public Transform focalPoint;
+    private bool shouldMove = true;
+
     void Start()
     {
         rotated = (int)transform.rotation.eulerAngles.y;
@@ -113,6 +117,10 @@ public class CameraController : MonoBehaviour
             {
                 targetDirection.y = 0;
                 dragDelta = origin - targetDirection;
+
+                // Calculate distance form map center
+                if (focalPoint != null)
+                    shouldMove = (Vector3.Distance(focalPoint.position, transform.position + dragDelta) < 130);
             }
         }
 
@@ -124,7 +132,7 @@ public class CameraController : MonoBehaviour
     {
         Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, zoomSize, Time.deltaTime * ZoomSpeed);
 
-        if (!dragDelta.Equals(Vector3.zero))
+        if (!dragDelta.Equals(Vector3.zero) && shouldMove)
             transform.position += dragDelta;
     }
 

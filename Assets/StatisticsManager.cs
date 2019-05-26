@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System;
 
 public class StatisticsManager : MonoBehaviour
 {
@@ -26,7 +28,8 @@ public class StatisticsManager : MonoBehaviour
     public int DamageTaken { get; private set; }
     public int MaxWaves { get; private set; }
     public bool WavesEnded { get; private set; } = false;
-    
+    public float GameTime { get; private set; }
+
     private void Awake()
     {
         if (instance == null)
@@ -60,7 +63,10 @@ public class StatisticsManager : MonoBehaviour
             damageTaken.text = DamageTaken.ToString();
 
             // Player won the game. Set record.
-            timePlayed.text = Time.timeSinceLevelLoad.ToString();
+            GameTime = Time.timeSinceLevelLoad;
+            var time = TimeSpan.FromSeconds(GameTime);
+            var timeString = time.ToString(@"mm\:ss").Replace(":", " min. ") + " sec.";
+            timePlayed.text = timeString;
             gameWinScreen.SetActive(true);
         }
     }
@@ -90,6 +96,8 @@ public class StatisticsManager : MonoBehaviour
         if (playerName.Trim().Length == 0)
             playerName = "Player 1";
 
-        return new RankingEntry(playerName, Time.timeSinceLevelLoad, 1);
+        var levelName = SceneManager.GetActiveScene().name;
+        int.TryParse(levelName.Substring(levelName.Length - 1), out int level);
+        return new RankingEntry(playerName, GameTime, level);
     }
 }

@@ -29,8 +29,8 @@ public class ParseScores : MonoBehaviour
         var orderedScores = filteredScores.OrderBy(score => score.PlayTime).ToList();
 
         if (orderedScores.Count() > 0)
-            for (var i = 0; i < filteredScores.Count(); i++)
-                CreateTextElements(24, (i + 1).ToString(), filteredScores[i].Name, ToTimeString(filteredScores[i].PlayTime));
+            for (var i = 0; i < orderedScores.Count(); i++)
+                CreateTextElements(24, (i + 1).ToString(), orderedScores[i].Name, ToTimeString(orderedScores[i].PlayTime));
     }
 
     string ToTimeString(float seconds)

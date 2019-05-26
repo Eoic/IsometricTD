@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [System.Serializable]
 public class Waves
@@ -24,7 +22,7 @@ public class WaveManager : MonoBehaviour
         // All waves completed.
         if (wavesToLaunch == wavesLaunched)
         {
-            Debug.Log("Done");
+            StatisticsManager.instance.RegisterWavesEnded();
             CancelInvoke("SpawnWave");
             return;
         }
