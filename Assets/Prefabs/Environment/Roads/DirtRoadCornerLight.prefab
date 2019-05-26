@@ -10,12 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1699448540201137533}
   - component: {fileID: 1699448540201137506}
-  m_Layer: 0
+  - component: {fileID: 1977479386777065747}
+  m_Layer: 12
   m_Name: DirtRoadCornerLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1699448540201137533
 Transform:
@@ -79,3 +80,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &1977479386777065747
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699448540201137507}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.3046875, y: 2.3046875, z: 0.20000014}
+  m_Center: {x: 0, y: 0, z: 0.000000059604645}

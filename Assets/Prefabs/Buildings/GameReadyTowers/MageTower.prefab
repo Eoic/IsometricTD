@@ -142,7 +142,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4481352444302566876}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 397, y: 0.5, z: 329}
+  m_LocalPosition: {x: 351, y: 0.5, z: 324}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4481352444140375941}
@@ -325,10 +325,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4481352444302566879}
     m_Modifications:
-    - target: {fileID: 100000, guid: b66d92bba58d76340881c3ae48b3277b, type: 3}
-      propertyPath: m_Name
-      value: MageTower
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b66d92bba58d76340881c3ae48b3277b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -385,6 +381,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b66d92bba58d76340881c3ae48b3277b, type: 3}
+      propertyPath: m_Name
+      value: MageTower
+      objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: b66d92bba58d76340881c3ae48b3277b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -410,10 +410,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4481352444140375941}
     m_Modifications:
-    - target: {fileID: 100000, guid: 6b23481a67f0a2f46801e2c2c7667b66, type: 3}
-      propertyPath: m_Name
-      value: Crystal
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6b23481a67f0a2f46801e2c2c7667b66, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -469,6 +465,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 6b23481a67f0a2f46801e2c2c7667b66, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6b23481a67f0a2f46801e2c2c7667b66, type: 3}
+      propertyPath: m_Name
+      value: Crystal
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 6b23481a67f0a2f46801e2c2c7667b66, type: 3}
       propertyPath: m_Materials.Array.data[0]
