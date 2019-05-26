@@ -77,7 +77,8 @@ public class Building : MonoBehaviour, IPointerClickHandler
         if (viewRange != null)
             viewRange.gameObject.SetActive(false);
 
-        GameAudioManager.instance.Play("Build");
+        if (GameAudioManager.instance != null) GameAudioManager.instance.Play("Build");
+        else AudioManager.instance.Play("Build");
     }
 
     void ShowParticleEffects()

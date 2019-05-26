@@ -22,7 +22,7 @@ public class ShootEnemiesT : MonoBehaviour
 
     private void OnTriggerStay(Collider collider)
     {
-        Collider[] others = Physics.OverlapSphere(this.transform.position, range+1);
+        Collider[] others = Physics.OverlapSphere(this.transform.position, range);
         Collider other = others[Random.Range(0,others.Length)];
         if (other.CompareTag("Enemy"))
         {

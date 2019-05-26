@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 public class EnemyControllerT : MonoBehaviour, IDamageable
 {
@@ -28,7 +29,7 @@ public class EnemyControllerT : MonoBehaviour, IDamageable
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Target"))
+        if (other.CompareTag("Target") && targetPoints.Contains(other.gameObject))//TODO: might be wrong
         {
             pointIterator++;
         }

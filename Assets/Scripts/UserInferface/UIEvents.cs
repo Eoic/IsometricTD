@@ -107,7 +107,8 @@ public class UIEvents : MonoBehaviour
             if (selectedBuilding != null)
                 selectedBuilding.ToggleViewRange(false);
 
-            GameAudioManager.instance.Play("BuildingClick");
+            if (GameAudioManager.instance != null) GameAudioManager.instance.Play("BuildingClick");
+            else AudioManager.instance.Play("BuildingClick");
             selectedBuilding = building;
 
             // Disable overlaping elements first
