@@ -31,13 +31,17 @@ public class ShootEnemies : MonoBehaviour
             // Select enemy to fire at
             int randomEnemy = UnityEngine.Random.Range(0, collisions.Length);
             EnemyController enemy = collisions[randomEnemy].gameObject.GetComponent<EnemyController>();
-            //weapon.SetTarget(enemy.transform.position);
+            EnemyControllerT enemyT = collisions[randomEnemy].gameObject.GetComponent<EnemyControllerT>();
+            //weapon.SetTarget(enemy.transform.position)
 
             // Create new projectile
             if (projectileBlueprint != null)
             {
                 audioSource.Play();
-                Instantiate(projectileBlueprint, projectileSpawn.position, Quaternion.identity).GetComponent<Projectile>().InitializeFields(damage, enemy.transform.position);
+                if(enemy != null)
+                    Instantiate(projectileBlueprint, projectileSpawn.position, Quaternion.identity).GetComponent<Projectile>().InitializeFields(damage, enemy.transform.position);
+                else
+                    Instantiate(projectileBlueprint, projectileSpawn.position, Quaternion.identity).GetComponent<Projectile>().InitializeFields(damage, enemyT.transform.position);
             }
         }
     }

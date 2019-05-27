@@ -28,7 +28,7 @@ public class UIEvents : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(ControlsMapper.Instance.OpenBuildMenu))
+        if (Input.GetKeyDown(KeyCode.B/*ControlsMapper.Instance.OpenBuildMenu*/))
         {
             // Disable build mode.
             StructureBuilder.Instance.DisableBuildMode();
