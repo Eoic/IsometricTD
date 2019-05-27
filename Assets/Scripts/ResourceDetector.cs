@@ -11,7 +11,6 @@ public class ResourceDetector : MonoBehaviour
 
     private Stack<GameObject> resourceEntities;
 
-
     void CollectResources()
     {
         if (resourceEntities.Count == 0)
