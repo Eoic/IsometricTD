@@ -164,3 +164,11 @@ MonoBehaviour:
     outputMixer: {fileID: 243296112928026784, guid: 8af60600f44cd584b8ceb52d8814198b,
       type: 2}
     source: {fileID: 0}
+  - name: CannonShot
+    clip: {fileID: 8300000, guid: 730c2ffb20b6b074e9d24ffe7254c1fa, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    outputMixer: {fileID: 243296112928026784, guid: 8af60600f44cd584b8ceb52d8814198b,
+      type: 2}
+    source: {fileID: 0}

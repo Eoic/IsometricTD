@@ -5,7 +5,7 @@ public class ShootEnemies : MonoBehaviour
 {
     public GameObject projectileBlueprint;
     public Transform projectileSpawn;
-    //public GameObject weapon;           // Cannon turret.
+    public TurretWeapon weapon;
 
     public float radius;
     public LayerMask enemyLayer;
@@ -32,6 +32,7 @@ public class ShootEnemies : MonoBehaviour
             // Select enemy to fire at
             int randomEnemy = UnityEngine.Random.Range(0, collisions.Length);
             EnemyController enemy = collisions[randomEnemy].gameObject.GetComponent<EnemyController>();
+            //weapon.SetTarget(enemy.transform.position);
 
             // Create new projectile
             if (projectileBlueprint != null)
