@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class ShowInfoOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -16,8 +16,9 @@ public class ShowInfoOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExit
         {
             // Find reference to building.
             GameObject buildingGameObj = StructureBuilder.Instance.Buildings
-                                  .Find(item => item.GetComponentInChildren<Building>()
-                                  .BuildingId == buildingKey);
+                                  .Find(item =>
+                                  item.GetComponentInChildren<Building>().BuildingId == buildingKey
+                                      );
 
             // If building was found, display its info.
             if (buildingGameObj != null)
