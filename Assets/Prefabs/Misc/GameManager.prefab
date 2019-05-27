@@ -86,9 +86,9 @@ MonoBehaviour:
   woodText: {fileID: 0}
   stoneText: {fileID: 0}
   ironText: {fileID: 0}
-  wood: 1000
-  stone: 1000
-  iron: 1000
+  wood: 50
+  stone: 50
+  iron: 50
 --- !u!114 &758668291
 MonoBehaviour:
   m_ObjectHideFlags: 0

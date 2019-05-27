@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class UIEvents : MonoBehaviour
 {
@@ -107,27 +107,18 @@ public class UIEvents : MonoBehaviour
             if (selectedBuilding != null)
                 selectedBuilding.ToggleViewRange(false);
 
-            if (GameAudioManager.instance != null) GameAudioManager.instance.Play("BuildingClick");
+            if (GameAudioManager.instance != null)
+                GameAudioManager.instance.Play("BuildingClick");
             else AudioManager.instance.Play("BuildingClick");
+
             selectedBuilding = building;
 
             // Disable overlaping elements first
             resourceBuildingsPanel.gameObject.SetActive(false);
             towersPanel.gameObject.SetActive(false);
             buildingsCategory.gameObject.SetActive(false);
-
             buildingInfo.gameObject.SetActive(true);
-            var destroyButton = buildingInfo.GetChild(1).GetComponent<Button>();
-
-            if (destroyButton != null && building != null)
-            {
-                destroyButton.onClick.RemoveAllListeners();
-                destroyButton.onClick.AddListener(() =>
-                {
-                    var animator = building.GetComponent<Animator>();
-                    Destroy(building);
-                });
-            }
+            buildingInfo.GetChild(0).GetComponent<TextMeshProUGUI>().text = selectedBuilding.Name;
         }
     }
 
@@ -138,6 +129,6 @@ public class UIEvents : MonoBehaviour
             selectedBuilding.ToggleViewRange(false);
             buildingInfo.gameObject.SetActive(false);
             selectedBuilding = null;
-        }        
+        }
     }
 }
