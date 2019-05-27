@@ -29,18 +29,14 @@ public class Mine : MonoBehaviour
 
     public void BuildStoneMine()
     {
-        mineEntry.SetActive(true);
-        InvokeRepeating("StartCollecting", 2f, 5f);
         type = MineType.STONE;
-        isBuilt = true;
+        SetAsBuilt();
     }
 
     public void BuildIronMine()
     {
-        mineEntry.SetActive(true);
-        InvokeRepeating("StartCollecting", 2f, 5f);
         type = MineType.IRON;
-        isBuilt = true;
+        SetAsBuilt();
     }
 
     void StartCollecting()
@@ -57,5 +53,13 @@ public class Mine : MonoBehaviour
             ResourceManager.Instance.AddStone(amountPerDig);
         else if (type == MineType.IRON)
             ResourceManager.Instance.AddIron(amountPerDig);
+    }
+
+    void SetAsBuilt()
+    {
+        GameAudioManager.instance.Play("Build");
+        mineEntry.SetActive(true);
+        InvokeRepeating("StartCollecting", 2f, 5f);
+        isBuilt = true;
     }
 }
