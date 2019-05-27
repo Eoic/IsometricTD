@@ -6,7 +6,7 @@ public class WaveT
     public int WaveTime;
     public bool[] WhichSpawnsToUse;
     public int[] EnemyCountPerSpawn;
-
+    public EnemyType[] enemyTypes;
 }
 
 
@@ -43,6 +43,7 @@ public class SpawnManagerT : MonoBehaviour
         if (currentWaveIdx < waves.Length && seconds >= waves[currentWaveIdx].WaveTime)
         {
             seconds = 0;
+
             if (currentWaveIdx == waves.Length - 1)
                 StatisticsManager.instance.RegisterWavesEnded();
             
@@ -60,6 +61,7 @@ public class SpawnManagerT : MonoBehaviour
         }
         for (int i = 0; i < spawnPoints.Length; i++)
         {
+            spawnPoints[i].enemyType = waves[currentWaveIdx].enemyTypes[i];
             if (!waves[currentWaveIdx].WhichSpawnsToUse[i])
                 continue; //skip if spawn point disabled
             float secondAcc = secondsBetweenSpawns;
