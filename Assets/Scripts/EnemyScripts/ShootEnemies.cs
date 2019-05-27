@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ShootEnemies : MonoBehaviour
 {
@@ -27,7 +26,7 @@ public class ShootEnemies : MonoBehaviour
     {
         collisions = Physics.OverlapSphere(transform.position, radius, enemyLayer);
 
-        if (collisions.Length > 0)
+        if (collisions.Length > 0 && GetComponent<Building>().IsBuilt)
         {
             // Select enemy to fire at
             int randomEnemy = UnityEngine.Random.Range(0, collisions.Length);
