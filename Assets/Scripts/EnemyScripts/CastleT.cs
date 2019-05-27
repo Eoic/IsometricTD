@@ -24,7 +24,7 @@ public class CastleT : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage)
     {
-        damage = currentHealth > damage ? damage : 0;
+        damage = currentHealth > damage ? damage : currentHealth;
         StatisticsManager.instance.RegisterDamageTaken(damage);
         currentHealth -= damage;
         healthBar.transform.localScale = new Vector3((float)currentHealth / (float)maxHealth, 1, 1);

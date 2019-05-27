@@ -465,10 +465,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   speed: 4
-  maxHealth: 100
-  currentHealth: 100
+  maxHealth: 200
+  currentHealth: 200
   healthBar: {fileID: 3794382152798133014}
-  damage: 40
+  damage: 80
 --- !u!82 &1478962920208951990
 AudioSource:
   m_ObjectHideFlags: 0

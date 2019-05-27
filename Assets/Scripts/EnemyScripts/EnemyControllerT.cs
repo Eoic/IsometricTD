@@ -27,6 +27,7 @@ public class EnemyControllerT : MonoBehaviour, IDamageable
         animator = GetComponent<Animator>();
         deathSound = this.GetComponent<AudioSource>();
         animator.Play("Run");
+        animator.SetBool("IsWalking", true);
     }
     
     // Update is called once per frame
@@ -79,6 +80,7 @@ public class EnemyControllerT : MonoBehaviour, IDamageable
         if (currentHealth <= 0) //DETH
         {
             animator.SetTrigger("Die");
+            animator.SetBool("IsDying", true);
             speed = 0;
             Destroy(this.gameObject, 2);
             if (!isDead) {
