@@ -57,7 +57,11 @@ public class Mine : MonoBehaviour
 
     void SetAsBuilt()
     {
-        GameAudioManager.instance.Play("Build");
+        if(GameAudioManager.instance != null)
+            GameAudioManager.instance.Play("Build");
+        else
+            AudioManager.instance.Play("Building01");
+        
         mineEntry.SetActive(true);
         InvokeRepeating("StartCollecting", 2f, 5f);
         isBuilt = true;

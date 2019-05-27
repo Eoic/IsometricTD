@@ -656,6 +656,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 340214999112317836, guid: c0b17df722f943e4e928ccf2ea14fcf5,
+        type: 3}
+      propertyPath: woodCost
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 340214999112317836, guid: c0b17df722f943e4e928ccf2ea14fcf5,
+        type: 3}
+      propertyPath: ironCost
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 340214999112317836, guid: c0b17df722f943e4e928ccf2ea14fcf5,
+        type: 3}
+      propertyPath: stoneCost
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0b17df722f943e4e928ccf2ea14fcf5, type: 3}
 --- !u!4 &6037726378793635276 stripped

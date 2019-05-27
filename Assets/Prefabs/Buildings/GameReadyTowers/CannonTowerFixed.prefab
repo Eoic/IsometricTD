@@ -172,9 +172,9 @@ MonoBehaviour:
   buildingName: Cannon tower
   viewRange: {fileID: 6908599145590877703}
   buildingId: BUILDING_TOWER_MCANNON
-  stoneCost: 10
-  woodCost: 10
-  ironCost: 10
+  stoneCost: 25
+  woodCost: 30
+  ironCost: 20
   onValidPosition: 0
   isBuilt: 0
   IsBlueprint: 1
