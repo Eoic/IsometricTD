@@ -44,6 +44,7 @@ public class CameraController : MonoBehaviour
 
     // Center of the map
     public Transform focalPoint;
+    public float maxDistanceFromCenter = 130;
     private bool shouldMove = true;
 
     void Start()
@@ -120,7 +121,7 @@ public class CameraController : MonoBehaviour
 
                 // Calculate distance form map center
                 if (focalPoint != null)
-                    shouldMove = (Vector3.Distance(focalPoint.position, transform.position + dragDelta) < 130);
+                    shouldMove = (Vector3.Distance(focalPoint.position, transform.position + dragDelta) < maxDistanceFromCenter);
             }
         }
 

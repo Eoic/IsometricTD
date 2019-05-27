@@ -74,6 +74,12 @@ public class Building : MonoBehaviour, IPointerClickHandler
         ShowParticleEffects();
         isBuilt = true;
 
+        // If resource building, collect resources.
+        var resourceDetector = GetComponent<ResourceDetector>();
+
+        if (resourceDetector != null)
+            resourceDetector.StartCollecting();
+
         if (viewRange != null)
             viewRange.gameObject.SetActive(false);
 

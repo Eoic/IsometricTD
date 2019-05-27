@@ -1,24 +1,59 @@
-﻿using System.Collections;
+﻿using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class ResourceDetector : MonoBehaviour
 {
     public LayerMask resourceLayerMask;
-        
-    private void OnCollisionEnter(Collision collision)
+    public GameObject resourceDepletionMarker;
+
+    public float collectionInterval;
+    public int bitePerCollection;
+
+    private Stack<GameObject> resourceEntities;
+
+
+    void CollectResources()
     {
-        // Resources are in range
-        if(((1 << collision.gameObject.layer) & resourceLayerMask) == 0)
+        if (resourceEntities.Count == 0)
         {
-            Debug.Log("Overlapping with trees");
+            CancelInvoke("CollectResources");
+            return;
+        }
+
+        var resourceRef = resourceEntities.Peek().GetComponentInParent<Resource>();
+
+        if (resourceRef.IsDepleted)
+        {
+            // TODO: Instantiate stump in its place
+            Instantiate(resourceDepletionMarker, resourceEntities.Peek().transform.position, resourceDepletionMarker.transform.rotation);
+            Destroy(resourceEntities.Peek());
+            resourceEntities.Pop();
+        }
+        else
+        {
+            int collected = resourceRef.ConsumeResource(bitePerCollection);
+            ResourceManager.Instance.AddWood(collected);
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    public void StartCollecting()
     {
-
+        // Scan for resources in range and invoke collection method
+        TransformToStack(Physics.OverlapSphere(transform.position, 27, resourceLayerMask));
+        InvokeRepeating("CollectResources", 2f, collectionInterval);
     }
 
+    void TransformToStack(Collider[] colliders)
+    {
+        resourceEntities = new Stack<GameObject>();
 
+        foreach (var collider in colliders)
+            resourceEntities.Push(collider.gameObject);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, 27);
+    }
 }
