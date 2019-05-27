@@ -79,12 +79,12 @@ public class CameraController : MonoBehaviour
 
     void RotateCamera()
     {
-        if (Input.GetKeyDown(ControlsMapper.Instance.TurnCameraRight))
+        if (Input.GetKeyDown(KeyCode.E /*ControlsMapper.Instance.TurnCameraRight*/))
         {
             rotated = (rotated + 90) % 360;
             rotationTarget = Quaternion.Euler(0, rotated, 0);
         }
-        else if (Input.GetKeyDown(ControlsMapper.Instance.TurnCameraLeft))
+        else if (Input.GetKeyDown(KeyCode.Q/*ControlsMapper.Instance.TurnCameraLeft*/))
         {
             rotated = (rotated - 90) % 360;
             rotationTarget = Quaternion.Euler(0, rotated, 0);

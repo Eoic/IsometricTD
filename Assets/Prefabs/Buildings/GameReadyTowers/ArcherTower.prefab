@@ -133,7 +133,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6148600418977616338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 368, y: 0.00000011920929, z: -619}
+  m_LocalPosition: {x: 346, y: 0.5, z: 323}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6148600419748925521}
@@ -316,6 +316,11 @@ PrefabInstance:
       propertyPath: projectileSpawn
       value: 
       objectReference: {fileID: 1820813460}
+    - target: {fileID: 2076283975657927164, guid: da616cb5b9fddd74cad7d4232da99c7e,
+        type: 3}
+      propertyPath: radius
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da616cb5b9fddd74cad7d4232da99c7e, type: 3}
 --- !u!1 &6148600419748957297 stripped

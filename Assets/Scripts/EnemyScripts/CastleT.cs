@@ -22,11 +22,25 @@ public class CastleT : MonoBehaviour, IDamageable
         
     }
 
+    private bool theme3Playing = false;
+    private bool theme5Playing = false;
     public void TakeDamage(int damage)
     {
         damage = currentHealth > damage ? damage : currentHealth;
         StatisticsManager.instance.RegisterDamageTaken(damage);
         currentHealth -= damage;
+        if (currentHealth <= maxHealth * 0.7 && currentHealth > maxHealth * 0.4 && !theme3Playing)
+        {
+            theme3Playing = true;
+            AudioManager.instance.Play("Theme3");
+            AudioManager.instance.Stop("Theme1");
+        }
+        if (currentHealth <= maxHealth * 0.4 && !theme5Playing)
+        {
+            theme5Playing = true;
+            AudioManager.instance.Play("Theme5");
+            AudioManager.instance.Stop("Theme3");
+        }
         healthBar.transform.localScale = new Vector3((float)currentHealth / (float)maxHealth, 1, 1);
         if (currentHealth <= 0)
         {

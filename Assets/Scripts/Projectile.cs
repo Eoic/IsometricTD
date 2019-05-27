@@ -2,7 +2,7 @@
 
 public class Projectile : MonoBehaviour
 {
-    private float Speed = 10f;
+    private float Speed = 40f;
     public int Damage { get; set; } = 0;
     public LayerMask EnemyLayer;
     public Vector3 Target { get; set; }

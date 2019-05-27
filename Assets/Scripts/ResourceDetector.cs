@@ -20,19 +20,25 @@ public class ResourceDetector : MonoBehaviour
             return;
         }
 
-        var resourceRef = resourceEntities.Peek().GetComponentInParent<Resource>();
+        Resource resourceRef = null;
 
-        if (resourceRef.IsDepleted)
+        if (resourceEntities != null && resourceEntities.Peek() != null)
+            resourceRef = resourceEntities.Peek().GetComponentInParent<Resource>();
+
+        if (resourceRef != null)
         {
-            // TODO: Instantiate stump in its place
-            Instantiate(resourceDepletionMarker, resourceEntities.Peek().transform.position, resourceDepletionMarker.transform.rotation);
-            Destroy(resourceEntities.Peek());
-            resourceEntities.Pop();
-        }
-        else
-        {
-            int collected = resourceRef.ConsumeResource(bitePerCollection);
-            ResourceManager.Instance.AddWood(collected);
+            if (resourceRef.IsDepleted)
+            {
+                // TODO: Instantiate stump in its place
+                Instantiate(resourceDepletionMarker, resourceEntities.Peek().transform.position, resourceDepletionMarker.transform.rotation);
+                Destroy(resourceEntities.Peek());
+                resourceEntities.Pop();
+            }
+            else
+            {
+                int collected = resourceRef.ConsumeResource(bitePerCollection);
+                ResourceManager.Instance.AddWood(collected);
+            } 
         }
     }
 
