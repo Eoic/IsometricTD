@@ -1,136 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!82 &2157906181127251698
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 607230076156758275}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 243089386812919898, guid: a72ac464e8ca36940b9cc69e0a81da31,
-    type: 2}
-  m_audioClip: {fileID: 8300000, guid: 9e136c2118ccdb5419bd96adc8ecfd95, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!135 &8232648485187755292
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 607230076156758275}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 8
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4090090706224204839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 607230076156758275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b06d476f05ae67a48aba1927d96dbf59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectileBlueprint: {fileID: 5445171240439658475, guid: a0cca0cf0f6ac324992d18d015ef69b1,
-    type: 3}
-  projectileSpawn: {fileID: 378286978064919956}
-  radius: 16
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 32768
-  shotCooldown: 2
-  damage: 50
 --- !u!1 &3196000692558115043
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +103,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7259556230147315165}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 307, y: 0.00000011920929, z: -564}
+  m_LocalPosition: {x: 348, y: 0.5, z: 325}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 607230076157056291}
@@ -340,11 +209,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6280901225525559313, guid: ddd1c1f6c77277f49a0232ae3f93b5c9,
-        type: 3}
-      propertyPath: viewRange
-      value: 
-      objectReference: {fileID: 2676862378276061331}
     - target: {fileID: 4321328119635194580, guid: ddd1c1f6c77277f49a0232ae3f93b5c9,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -370,6 +234,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 16.622002
       objectReference: {fileID: 0}
+    - target: {fileID: 6280901225525559313, guid: ddd1c1f6c77277f49a0232ae3f93b5c9,
+        type: 3}
+      propertyPath: viewRange
+      value: 
+      objectReference: {fileID: 2676862378276061331}
     - target: {fileID: 4090090706224204839, guid: ddd1c1f6c77277f49a0232ae3f93b5c9,
         type: 3}
       propertyPath: projectileSpawn
@@ -383,3 +252,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7259556230802236488}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4090090706224204839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b06d476f05ae67a48aba1927d96dbf59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileBlueprint: {fileID: 5445171240439658475, guid: a0cca0cf0f6ac324992d18d015ef69b1,
+    type: 3}
+  projectileSpawn: {fileID: 378286978064919956}
+  weapon: {fileID: 0}
+  radius: 16
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 32768
+  shotCooldown: 2
+  damage: 50

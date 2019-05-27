@@ -9,15 +9,15 @@ public class StatisticsManager : MonoBehaviour
     public static StatisticsManager instance;
 
     // UI elements
-    public TextMeshProUGUI waveCount;
+    public Text waveCount;
     public GameObject gameWinScreen;
-    public TextMeshProUGUI wavesSurvived;
-    public TextMeshProUGUI enemiesKilled;
-    public TextMeshProUGUI structuresBuilt;
-    public TextMeshProUGUI damageTaken;
+    public Text wavesSurvived;
+    public Text enemiesKilled;
+    public Text structuresBuilt;
+    public Text damageTaken;
     public TextMeshProUGUI gameInfoStructuresBuilt;
     public TextMeshProUGUI gameInfoStructuresAllowed;
-    public TextMeshProUGUI timePlayed;
+    public Text timePlayed;
     public InputField playersName;
 
     public int StructuresBuilt { get; private set; }
@@ -98,6 +98,8 @@ public class StatisticsManager : MonoBehaviour
 
         var levelName = SceneManager.GetActiveScene().name;
         int.TryParse(levelName.Substring(levelName.Length - 1), out int level);
+
+
         return new RankingEntry(playerName, GameTime, level);
     }
 }

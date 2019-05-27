@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CastleT : MonoBehaviour, IDamageable
 {
@@ -7,9 +8,9 @@ public class CastleT : MonoBehaviour, IDamageable
     private int currentHealth;
     public GameObject healthBar;
     public RectTransform gameOverScreen;
-    public TextMeshProUGUI wavesSurvived;
-    public TextMeshProUGUI enemiesKilled;
-    public TextMeshProUGUI structuresBuilt;
+    public Text wavesSurvived;
+    public Text enemiesKilled;
+    public Text structuresBuilt;
     // Start is called before the first frame update
     void Start()
     {

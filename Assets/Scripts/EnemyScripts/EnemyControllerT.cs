@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using UnityEngine;
-
 public class EnemyControllerT : MonoBehaviour, IDamageable
 {
     public GameObject[] targetPoints;
@@ -18,9 +17,6 @@ public class EnemyControllerT : MonoBehaviour, IDamageable
     private bool isDead = false;
     private AudioSource deathSound;
 
-
-
-    // Start is called before the first frame update
     void Start()
     {
 
@@ -30,7 +26,6 @@ public class EnemyControllerT : MonoBehaviour, IDamageable
         animator.SetBool("IsWalking", true);
     }
     
-    // Update is called once per frame
     void Update()
     {
         secondCounter += Time.deltaTime;

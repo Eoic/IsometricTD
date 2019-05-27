@@ -14,10 +14,8 @@ public class SpawnManagerT : MonoBehaviour
 {
     [SerializeField]
     public WaveT[] waves;
-    //public float timeBetweenSpawns = 10; //seconds between spawn events
     public GameObject[] spawnPointObjects;
     private SpawnPointT[] spawnPoints;
-    //public int[] enemiesPerSpawn;
     public float secondsBetweenSpawns = 1; //seconds between every enemy spawned
     private int currentWaveIdx = 0;
     private float seconds = 0;
