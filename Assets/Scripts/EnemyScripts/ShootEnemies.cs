@@ -29,7 +29,7 @@ public class ShootEnemies : MonoBehaviour
         if (collisions.Length > 0 && GetComponent<Building>().IsBuilt)
         {
             // Select enemy to fire at
-            int randomEnemy = UnityEngine.Random.Range(0, collisions.Length);
+            int randomEnemy = Random.Range(0, collisions.Length);
             EnemyController enemy = collisions[randomEnemy].gameObject.GetComponent<EnemyController>();
             EnemyControllerT enemyT = collisions[randomEnemy].gameObject.GetComponent<EnemyControllerT>();
             //weapon.SetTarget(enemy.transform.position)

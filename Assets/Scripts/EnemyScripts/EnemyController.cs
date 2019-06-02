@@ -107,7 +107,18 @@ public class EnemyController : MonoBehaviour, IDamageable
 
     public void TakeDamage(int amount)
     {
-        currentHealth -= amount;
+        int damageType = UnityEngine.Random.Range(0, 2);
+
+        if (damageType == 1)
+        {
+            Debug.Log("Enemy was killed instantly.");
+            currentHealth = 0;
+        }
+        else
+        {
+            Debug.Log("Enemy was hit by " + amount + "damage.");
+            currentHealth -= amount;
+        }
 
         if (currentHealth <= 0)
         {
@@ -120,6 +131,7 @@ public class EnemyController : MonoBehaviour, IDamageable
             UpdateHealth();
             state = Actions.IsTakingDamage;
         }
+        Debug.Log("Enemy hit by " + amount);
     }
 
     void UpdateHealth()

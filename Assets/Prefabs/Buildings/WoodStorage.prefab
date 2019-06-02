@@ -210,9 +210,9 @@ MonoBehaviour:
   buildingName: Woodcutters hut
   viewRange: {fileID: 5051331870102442458}
   buildingId: BUILDING_WOODCUTTER
-  stoneCost: 0
-  woodCost: 0
-  ironCost: 0
+  stoneCost: 5
+  woodCost: 5
+  ironCost: 2
   onValidPosition: 0
   isBuilt: 0
   IsBlueprint: 1

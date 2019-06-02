@@ -68,7 +68,7 @@ MonoBehaviour:
   - {fileID: 7259556230147315165, guid: 822f1880e17f0e3498629fac3ec2a2ca, type: 3}
   - {fileID: 4345710158864705756, guid: 3bd3e53c38ede63489c12626c5aa70d1, type: 3}
   - {fileID: 403900220247370934, guid: 0627691947849b74e8bdc12f72a4f454, type: 3}
-  - {fileID: 4481352444302566876, guid: 31890554015fee3418a89d316d7bd0e0, type: 3}
+  - {fileID: 2048203059856592534, guid: 0ce66a39e577aa24fbbdca4a28f00aae, type: 3}
   buildModeEnabled: 0
   buildingId: NONE
 --- !u!114 &840300757
@@ -86,9 +86,9 @@ MonoBehaviour:
   woodText: {fileID: 0}
   stoneText: {fileID: 0}
   ironText: {fileID: 0}
-  wood: 50
-  stone: 50
-  iron: 50
+  wood: 400
+  stone: 400
+  iron: 400
 --- !u!114 &758668291
 MonoBehaviour:
   m_ObjectHideFlags: 0

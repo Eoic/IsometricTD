@@ -28,7 +28,6 @@ public class ResourceDetector : MonoBehaviour
         {
             if (resourceRef.IsDepleted)
             {
-                // TODO: Instantiate stump in its place
                 Instantiate(resourceDepletionMarker, resourceEntities.Peek().transform.position, resourceDepletionMarker.transform.rotation);
                 Destroy(resourceEntities.Peek());
                 resourceEntities.Pop();
